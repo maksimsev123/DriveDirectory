@@ -1,0 +1,2684 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriveDirectory - Каталог премиальных автомобилей</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <!-- Иконки -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Наш файл стилей -->
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+
+    <!-- Навигация -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#home">
+                <i class="fas fa-car me-2"></i>DriveDirectory
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#home">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#catalog">Каталог</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#brands">Бренды</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#why-us">Почему мы</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Герой секция с фото-фоном -->
+    <section id="home" class="hero-section d-flex align-items-center">
+        <div class="container text-center text-white">
+            <h1 class="display-3 fw-bold mb-4">DriveDirectory</h1>
+            <p class="lead hero-subtitle">Ваш гид в мире премиальных автомобилей. Найдите свой идеальный автомобиль среди тысяч предложений.</p>
+            <div class="hero-stats mt-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-3 col-6">
+                        <div class="stat-item">
+                            <h3>10+</h3>
+                            <p>Брендов</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stat-item">
+                            <h3>30+</h3>
+                            <p>Моделей</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="stat-item">
+                            <h3>1000+</h3>
+                            <p>Автомобилей</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция брендов -->
+    <section id="brands" class="py-5 brands-section">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Наши бренды</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="brand-logo">
+                        <i class="fas fa-car-side"></i>
+                        <span>BMW</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="brand-logo">
+                        <i class="fas fa-star"></i>
+                        <span>Mercedes</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="brand-logo">
+                        <i class="fas fa-ring"></i>
+                        <span>Audi</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="brand-logo">
+                        <i class="fas fa-horse-head"></i>
+                        <span>Porsche</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="brand-logo">
+                        <i class="fas fa-bolt"></i>
+                        <span>Dodge</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="brand-logo">
+                        <i class="fas fa-flag-usa"></i>
+                        <span>Chevrolet</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="brand-logo">
+                        <i class="fas fa-horse"></i>
+                        <span>Ford</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="brand-logo">
+                        <i class="fas fa-crown"></i>
+                        <span>Cadillac</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="brand-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Lamborghini</span>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4 col-lg-2 text-center">
+                    <div class="brand-logo">
+                        <i class="fas fa-truck-pickup"></i>
+                        <span>RAM</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция каталога -->
+    <section id="catalog" class="py-5 catalog-section">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">Каталог автомобилей</h2>
+            
+            <!-- BMW -->
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">BMW</h3>
+                <div class="row g-4">
+                    <!-- BMW M5 Competition -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#bmwM5Modal">
+                            <div class="card-image">
+                                <img src="images/cars/bmw-m5.jpg" class="card-img-top" alt="BMW M5 Competition">
+                                <div class="card-overlay">
+                                    <span class="price">от 12.900.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">BMW M5 Competition</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>625 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.1 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>4.4 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Легендарный спортивный седан с технологиями Formula 1</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BMW X5 M Competition -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#bmwX5Modal">
+                            <div class="card-image">
+                                <img src="images/cars/bmw-x5.jpg" class="card-img-top" alt="BMW X5 M Competition">
+                                <div class="card-overlay">
+                                    <span class="price">от 10.200.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">BMW X5 M Competition</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>625 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.8 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>4.4 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Мощный SUV с характером спортивного автомобиля</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- BMW i7 xDrive60 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#bmwI7Modal">
+                            <div class="card-image">
+                                <img src="images/cars/bmw-i7.jpg" class="card-img-top" alt="BMW i7 xDrive60">
+                                <div class="card-overlay">
+                                    <span class="price">от 9.800.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">BMW i7 xDrive60</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>544 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>4.7 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-bolt"></i>
+                                        <span>625 км</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Флагманский электромобиль с инновационными технологиями</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mercedes-Benz -->
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">Mercedes-Benz</h3>
+                <div class="row g-4">
+                    <!-- Mercedes-AMG G 63 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#mercedesG63Modal">
+                            <div class="card-image">
+                                <img src="images/cars/mercedes-g63.jpg" class="card-img-top" alt="Mercedes-AMG G 63">
+                                <div class="card-overlay">
+                                    <span class="price">от 18.500.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Mercedes-AMG G 63</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>585 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>4.5 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>4.0 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Легендарный внедорожник с характером AMG</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mercedes-Benz S 580 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#mercedesS580Modal">
+                            <div class="card-image">
+                                <img src="images/cars/mercedes-sclass.jpg" class="card-img-top" alt="Mercedes-Benz S 580">
+                                <div class="card-overlay">
+                                    <span class="price">от 11.900.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Mercedes-Benz S 580</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>503 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>4.7 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>4.0 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Идеальное сочетание роскоши и технологий</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Mercedes-Benz EQS 580 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#mercedesEQSModal">
+                            <div class="card-image">
+                                <img src="images/cars/mercedes-eqs.jpg" class="card-img-top" alt="Mercedes-Benz EQS 580">
+                                <div class="card-overlay">
+                                    <span class="price">от 8.900.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Mercedes-Benz EQS 580</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>524 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>4.3 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-bolt"></i>
+                                        <span>670 км</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Электрический флагман с рекордным запасом хода</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audi -->
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">Audi</h3>
+                <div class="row g-4">
+                    <!-- Audi RS6 Avant -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#audiRS6Modal">
+                            <div class="card-image">
+                                <img src="images/cars/audi-rs6.jpg" class="card-img-top" alt="Audi RS6 Avant">
+                                <div class="card-overlay">
+                                    <span class="price">от 11.200.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Audi RS6 Avant</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>600 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.6 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>4.0 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Самый быстрый универсал в мире</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Audi R8 V10 Plus -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#audiR8Modal">
+                            <div class="card-image">
+                                <img src="images/cars/audi-r8.jpg" class="card-img-top" alt="Audi R8 V10 Plus">
+                                <div class="card-overlay">
+                                    <span class="price">от 14.500.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Audi R8 V10 Plus</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>610 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.2 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>5.2 л V10</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Суперкар с атмосферным двигателем</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Audi e-tron GT -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#audiETronModal">
+                            <div class="card-image">
+                                <img src="images/cars/audi-etron.jpg" class="card-img-top" alt="Audi e-tron GT">
+                                <div class="card-overlay">
+                                    <span class="price">от 9.500.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Audi e-tron GT</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>530 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>4.1 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-bolt"></i>
+                                        <span>488 км</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Электрический гран туризмо</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Porsche -->
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">Porsche</h3>
+                <div class="row g-4">
+                    <!-- Porsche 911 Turbo S -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#porsche911Modal">
+                            <div class="card-image">
+                                <img src="images/cars/porsche-911.jpg" class="card-img-top" alt="Porsche 911 Turbo S">
+                                <div class="card-overlay">
+                                    <span class="price">от 16.500.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Porsche 911 Turbo S</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>650 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>2.7 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>3.7 л B6</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Икона спортивных автомобилей с невероятной динамикой</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Porsche Taycan Turbo -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#porscheTaycanModal">
+                            <div class="card-image">
+                                <img src="images/cars/porsche-taycan.jpg" class="card-img-top" alt="Porsche Taycan Turbo">
+                                <div class="card-overlay">
+                                    <span class="price">от 12.300.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Porsche Taycan Turbo</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>680 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.2 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-bolt"></i>
+                                        <span>450 км</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Электрический спорткар с ДНК Porsche</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Porsche Cayenne Turbo GT -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#porscheCayenneModal">
+                            <div class="card-image">
+                                <img src="images/cars/porsche-cayenne.jpg" class="card-img-top" alt="Porsche Cayenne Turbo GT">
+                                <div class="card-overlay">
+                                    <span class="price">от 13.800.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Porsche Cayenne Turbo GT</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>640 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.3 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>4.0 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Самый быстрый SUV на Нюрбургринге</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dodge -->
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">Dodge</h3>
+                <div class="row g-4">
+                    <!-- Dodge Challenger SRT Hellcat -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#dodgeChallengerModal">
+                            <div class="card-image">
+                                <img src="images/cars/dodge-challenger.jpg" class="card-img-top" alt="Dodge Challenger SRT Hellcat">
+                                <div class="card-overlay">
+                                    <span class="price">от 8.900.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Dodge Challenger SRT Hellcat</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>717 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.6 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>6.2 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Американский мускул-кар с адским характером</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dodge Charger SRT Hellcat -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#dodgeChargerModal">
+                            <div class="card-image">
+                                <img src="images/cars/dodge-charger.jpg" class="card-img-top" alt="Dodge Charger SRT Hellcat">
+                                <div class="card-overlay">
+                                    <span class="price">от 9.200.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Dodge Charger SRT Hellcat</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>717 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.7 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>6.2 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Четырехдверный мускул-кар с невероятной мощностью</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Dodge Viper ACR -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#dodgeViperModal">
+                            <div class="card-image">
+                                <img src="images/cars/dodge-viper.jpg" class="card-img-top" alt="Dodge Viper ACR">
+                                <div class="card-overlay">
+                                    <span class="price">от 15.000.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Dodge Viper ACR</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>645 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.0 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>8.4 л V10</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Легендарный американский суперкар</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chevrolet -->
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">Chevrolet</h3>
+                <div class="row g-4">
+                    <!-- Chevrolet Camaro ZL1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#chevroletCamaroModal">
+                            <div class="card-image">
+                                <img src="images/cars/chevrolet-camaro.jpg" class="card-img-top" alt="Chevrolet Camaro ZL1">
+                                <div class="card-overlay">
+                                    <span class="price">от 7.500.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Chevrolet Camaro ZL1</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>650 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.5 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>6.2 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Икона американского автомобилестроения</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Chevrolet Corvette Stingray -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#chevroletCorvetteModal">
+                            <div class="card-image">
+                                <img src="images/cars/chevrolet-corvette.jpg" class="card-img-top" alt="Chevrolet Corvette Stingray">
+                                <div class="card-overlay">
+                                    <span class="price">от 8.200.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Chevrolet Corvette Stingray</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>495 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>2.9 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>6.2 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Американский суперкар с заднемоторной компоновкой</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Chevrolet Tahoe High Country -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#chevroletTahoeModal">
+                            <div class="card-image">
+                                <img src="images/cars/chevrolet-tahoe.jpg" class="card-img-top" alt="Chevrolet Tahoe High Country">
+                                <div class="card-overlay">
+                                    <span class="price">от 6.800.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Chevrolet Tahoe High Country</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>420 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>6.2 л V8</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>4WD</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Флагманский полноразмерный SUV</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ford -->
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">Ford</h3>
+                <div class="row g-4">
+                    <!-- Ford Mustang GT -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#fordMustangModal">
+                            <div class="card-image">
+                                <img src="images/cars/ford-mustang.jpg" class="card-img-top" alt="Ford Mustang GT">
+                                <div class="card-overlay">
+                                    <span class="price">от 5.900.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Ford Mustang GT</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>450 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>4.3 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>5.0 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Легендарный пони-кар</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ford F-150 Raptor -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#fordF150Modal">
+                            <div class="card-image">
+                                <img src="images/cars/ford-f150.jpg" class="card-img-top" alt="Ford F-150 Raptor">
+                                <div class="card-overlay">
+                                    <span class="price">от 7.200.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Ford F-150 Raptor</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>450 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>3.5 л V6</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>4WD</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Внедорожный пикап для экстремальных условий</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Ford Explorer ST -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#fordExplorerModal">
+                            <div class="card-image">
+                                <img src="images/cars/ford-explorer.jpg" class="card-img-top" alt="Ford Explorer ST">
+                                <div class="card-overlay">
+                                    <span class="price">от 6.500.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Ford Explorer ST</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>400 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>5.5 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>3.0 л V6</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Спортивный SUV для всей семьи</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cadillac -->
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">Cadillac</h3>
+                <div class="row g-4">
+                    <!-- Cadillac Escalade-V -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#cadillacEscaladeModal">
+                            <div class="card-image">
+                                <img src="images/cars/cadillac-escalade.jpg" class="card-img-top" alt="Cadillac Escalade-V">
+                                <div class="card-overlay">
+                                    <span class="price">от 12.500.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Cadillac Escalade-V</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>682 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>4.4 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>6.2 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Самый мощный полноразмерный SUV в мире</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cadillac XT5 Sport -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#cadillacXT5Modal">
+                            <div class="card-image">
+                                <img src="images/cars/cadillac-xt5.jpg" class="card-img-top" alt="Cadillac XT5 Sport">
+                                <div class="card-overlay">
+                                    <span class="price">от 5.200.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Cadillac XT5 Sport</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>310 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>3.6 л V6</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>AWD</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Премиальный кроссовер с американским характером</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Cadillac Lyriq -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#cadillacLyriqModal">
+                            <div class="card-image">
+                                <img src="images/cars/cadillac-lyriq.jpg" class="card-img-top" alt="Cadillac Lyriq">
+                                <div class="card-overlay">
+                                    <span class="price">от 6.800.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Cadillac Lyriq</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>340 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>6.0 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-bolt"></i>
+                                        <span>530 км</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Электрический флагман нового поколения</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lamborghini -->
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">Lamborghini</h3>
+                <div class="row g-4">
+                    <!-- Lamborghini Urus -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#lamborghiniUrusModal">
+                            <div class="card-image">
+                                <img src="images/cars/lamborghini-urus.jpg" class="card-img-top" alt="Lamborghini Urus">
+                                <div class="card-overlay">
+                                    <span class="price">от 22.000.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Lamborghini Urus</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>650 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.6 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>4.0 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Самый быстрый SUV в мире</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Lamborghini Revuelto -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#lamborghiniRevueltoModal">
+                            <div class="card-image">
+                                <img src="images/cars/lamborghini-revuelto.jpg" class="card-img-top" alt="Lamborghini Revuelto">
+                                <div class="card-overlay">
+                                    <span class="price">от 45.000.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Lamborghini Revuelto</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>1015 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>2.5 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>6.5 л V12</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Гиперкар нового поколения с гибридной силовой установкой</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Lamborghini Huracán STO -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#lamborghiniHuracanModal">
+                            <div class="card-image">
+                                <img src="images/cars/lamborghini-huracan.jpg" class="card-img-top" alt="Lamborghini Huracán STO">
+                                <div class="card-overlay">
+                                    <span class="price">от 28.500.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">Lamborghini Huracán STO</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>640 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>3.0 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>5.2 л V10</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Трековый монстр для дорог общего пользования</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RAM -->
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">RAM</h3>
+                <div class="row g-4">
+                    <!-- RAM 1500 Tungsten -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#ramTungstenModal">
+                            <div class="card-image">
+                                <img src="images/cars/ram-1500-tungsten.jpg" class="card-img-top" alt="RAM 1500 Tungsten">
+                                <div class="card-overlay">
+                                    <span class="price">от 6.200.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">RAM 1500 Tungsten</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>395 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>5.7 л V8</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>4WD</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Роскошный пикап премиум-класса</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RAM 1500 TRX -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#ramTRXModal">
+                            <div class="card-image">
+                                <img src="images/cars/ram-1500-trx.jpg" class="card-img-top" alt="RAM 1500 TRX">
+                                <div class="card-overlay">
+                                    <span class="price">от 12.500.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">RAM 1500 TRX</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>702 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>4.5 с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>6.2 л V8</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Самый мощный серийный пикап в мире</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- RAM 1500 RHO -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#ramRHOModal">
+                            <div class="card-image">
+                                <img src="images/cars/ram-1500-rho.jpg" class="card-img-top" alt="RAM 1500 RHO">
+                                <div class="card-overlay">
+                                    <span class="price">от 8.900.000 ₽</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">RAM 1500 RHO</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>540 л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-cog"></i>
+                                        <span>3.0 л I6</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-shield-alt"></i>
+                                        <span>4WD</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">Высокопроизводительный пикап для бездорожья</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Секция "Почему выбирают нас" -->
+    <section id="why-us" class="py-5 why-us-section">
+        <div class="container">
+            <h2 class="text-center mb-5 section-title">ПОЧЕМУ ВЫБИРАЮТ DRIVEDIRECTORY</h2>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <p class="lead text-center">Мы создаем безупречный опыт покупки премиальных автомобилей</p>
+
+                    <div class="row mt-5">
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-shield-alt"></i>
+                                </div>
+                                <h4>Гарантия качества</h4>
+                                <p>Каждый автомобиль проходит 150-точечную проверку и имеет полную сервисную историю</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-globe-europe"></i>
+                                </div>
+                                <h4>Поставки со всего мира</h4>
+                                <p>Прямые контракты с дилерами Европы, США и ОАЭ. Лучшие цены на рынке</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-user-cog"></i>
+                                </div>
+                                <h4>Персональный менеджер</h4>
+                                <p>Индивидуальный подход к каждому клиенту. Подбор автомобиля по вашим критериям</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="feature-card">
+                                <div class="feature-icon">
+                                    <i class="fas fa-truck"></i>
+                                </div>
+                                <h4>Доставка по России</h4>
+                                <p>Организуем доставку в любой город России. Срок доставки от 15 рабочих дней</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cta-section text-center mt-5">
+                        <h3>Готовы найти свой идеальный автомобиль?</h3>
+                        <p class="cta-subtitle">Свяжитесь с нами для бесплатной консультации</p>
+                        <div class="contact-info mt-4">
+                            <div class="row justify-content-center">
+                                <div class="col-md-4">
+                                    <i class="fas fa-phone"></i>
+                                    <h5>+7 (495) 123-45-67</h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <i class="fas fa-envelope"></i>
+                                    <h5>info@drivedirectory.ru</h5>
+                                </div>
+                                <div class="col-md-4">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <h5>Москва, ул. Автомобильная, 1</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="py-4 footer-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <p class="mb-0">&copy; 2024 DriveDirectory. Все права защищены.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-telegram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальные окна для автомобилей -->
+    
+    <!-- BMW M5 Competition -->
+    <div class="modal fade" id="bmwM5Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">BMW M5 Competition</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/bmw-m5.jpg" class="img-fluid rounded" alt="BMW M5 Competition">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 4.4 л V8 Twin-Turbo</li>
+                                    <li><strong>Мощность:</strong> 625 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 750 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП M Steptronic</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.1 с</li>
+                                    <li><strong>Макс. скорость:</strong> 305 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (M xDrive)</li>
+                                    <li><strong>Расход топлива:</strong> 10.8 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Активный дифференциал M Sport</li>
+                                <li>Керамические тормоза</li>
+                                <li>Кожа Merino полной отделки</li>
+                                <li>Система полного привода M xDrive</li>
+                                <li>Адаптивная подвеска M</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BMW X5 M Competition -->
+    <div class="modal fade" id="bmwX5Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">BMW X5 M Competition</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/bmw-x5.jpg" class="img-fluid rounded" alt="BMW X5 M Competition">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 4.4 л V8 Twin-Turbo</li>
+                                    <li><strong>Мощность:</strong> 625 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 750 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП M Steptronic</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.8 с</li>
+                                    <li><strong>Макс. скорость:</strong> 290 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (M xDrive)</li>
+                                    <li><strong>Расход топлива:</strong> 12.5 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Активная подвеска M</li>
+                                <li>Эксклюзивные сиденья M Multifunctional</li>
+                                <li>Керамические тормозные механизмы</li>
+                                <li>Система полного привода M xDrive</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BMW i7 xDrive60 -->
+    <div class="modal fade" id="bmwI7Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">BMW i7 xDrive60</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/bmw-i7.jpg" class="img-fluid rounded" alt="BMW i7 xDrive60">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Тип двигателя:</strong> Два электромотора</li>
+                                    <li><strong>Мощность:</strong> 544 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 745 Нм</li>
+                                    <li><strong>Батарея:</strong> 105.7 кВт·ч</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 4.7 с</li>
+                                    <li><strong>Запас хода:</strong> 625 км</li>
+                                    <li><strong>Привод:</strong> Полный (xDrive)</li>
+                                    <li><strong>Быстрая зарядка:</strong> 195 кВт</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>31-дюймовый дисплей Theatre Screen</li>
+                                <li>Кристаллические фары и задние фонари</li>
+                                <li>Система активного подруливания</li>
+                                <li>Executive Lounge с откидными сиденьями</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mercedes-AMG G 63 -->
+    <div class="modal fade" id="mercedesG63Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Mercedes-AMG G 63</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/mercedes-g63.jpg" class="img-fluid rounded" alt="Mercedes-AMG G 63">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 4.0 л V8 Biturbo</li>
+                                    <li><strong>Мощность:</strong> 585 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 850 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 9-ст. АКПП AMG Speedshift</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 4.5 с</li>
+                                    <li><strong>Макс. скорость:</strong> 220 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (4MATIC)</li>
+                                    <li><strong>Расход топлива:</strong> 13.1 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Три блокируемых дифференциала</li>
+                                <li>Адаптивная подвеска AMG RIDE CONTROL</li>
+                                <li>Кожа Nappa полной отделки</li>
+                                <li>Система AMG Performance 4MATIC</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mercedes-Benz S 580 -->
+    <div class="modal fade" id="mercedesS580Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Mercedes-Benz S 580</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/mercedes-sclass.jpg" class="img-fluid rounded" alt="Mercedes-Benz S 580">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 4.0 л V8 Biturbo + EQ Boost</li>
+                                    <li><strong>Мощность:</strong> 503 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 700 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 9-ст. АКПП 9G-Tronic</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 4.7 с</li>
+                                    <li><strong>Макс. скорость:</strong> 250 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (4MATIC)</li>
+                                    <li><strong>Расход топлива:</strong> 9.1 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Система MBUX с голосовым управлением</li>
+                                <li>Активная подвеска E-Active Body Control</li>
+                                <li>Кожа Nappa полной отделки</li>
+                                <li>Система проекции на лобовое стекло AR-HUD</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mercedes-Benz EQS 580 -->
+    <div class="modal fade" id="mercedesEQSModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Mercedes-Benz EQS 580</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/mercedes-eqs.jpg" class="img-fluid rounded" alt="Mercedes-Benz EQS 580">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Тип двигателя:</strong> Два электромотора</li>
+                                    <li><strong>Мощность:</strong> 524 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 855 Нм</li>
+                                    <li><strong>Батарея:</strong> 107.8 кВт·ч</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 4.3 с</li>
+                                    <li><strong>Запас хода:</strong> 670 км</li>
+                                    <li><strong>Привод:</strong> Полный (4MATIC)</li>
+                                    <li><strong>Быстрая зарядка:</strong> 200 кВт</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Гиперэкран MBUX с тремя дисплеями</li>
+                                <li>Активная пневмоподвеска AIR BODY CONTROL</li>
+                                <li>Система проекции на лобовое стекло</li>
+                                <li>Пакет функций автономного вождения</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audi RS6 Avant -->
+    <div class="modal fade" id="audiRS6Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Audi RS6 Avant</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/audi-rs6.jpg" class="img-fluid rounded" alt="Audi RS6 Avant">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 4.0 л V8 Twin-Turbo</li>
+                                    <li><strong>Мощность:</strong> 600 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 800 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП Tiptronic</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.6 с</li>
+                                    <li><strong>Макс. скорость:</strong> 305 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (quattro)</li>
+                                    <li><strong>Расход топлива:</strong> 11.6 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Спортивная подвеска с пневмоэлементами</li>
+                                <li>Система полного привода quattro</li>
+                                <li>Керамические тормозные механизмы</li>
+                                <li>Динамическое рулевое управление</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audi R8 V10 Plus -->
+    <div class="modal fade" id="audiR8Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Audi R8 V10 Plus</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/audi-r8.jpg" class="img-fluid rounded" alt="Audi R8 V10 Plus">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 5.2 л V10 атмосферный</li>
+                                    <li><strong>Мощность:</strong> 610 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 560 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 7-ст. РКПП S tronic</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.2 с</li>
+                                    <li><strong>Макс. скорость:</strong> 330 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (quattro)</li>
+                                    <li><strong>Расход топлива:</strong> 12.3 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Карбоновая отделка кузова</li>
+                                <li>Керамические тормозные механизмы</li>
+                                <li>Магниевое рулевое колесо с кожаной отделкой</li>
+                                <li>Спортивная выхлопная система</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audi e-tron GT -->
+    <div class="modal fade" id="audiETronModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Audi e-tron GT</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/audi-etron.jpg" class="img-fluid rounded" alt="Audi e-tron GT">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Тип двигателя:</strong> Два электромотора</li>
+                                    <li><strong>Мощность:</strong> 530 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 640 Нм</li>
+                                    <li><strong>Батарея:</strong> 93.4 кВт·ч</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 4.1 с</li>
+                                    <li><strong>Запас хода:</strong> 488 км</li>
+                                    <li><strong>Привод:</strong> Полный (quattro)</li>
+                                    <li><strong>Быстрая зарядка:</strong> 270 кВт</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Технология 800-вольтовой архитектуры</li>
+                                <li>Адаптивная пневмоподвеска</li>
+                                <li>Виртуальная кокпит Audi</li>
+                                <li>Система полного привода e-quattro</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Porsche 911 Turbo S -->
+    <div class="modal fade" id="porsche911Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Porsche 911 Turbo S</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/porsche-911.jpg" class="img-fluid rounded" alt="Porsche 911 Turbo S">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 3.7 л B6 Twin-Turbo</li>
+                                    <li><strong>Мощность:</strong> 650 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 800 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП PDK</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 2.7 с</li>
+                                    <li><strong>Макс. скорость:</strong> 330 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (PTM)</li>
+                                    <li><strong>Расход топлива:</strong> 11.1 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Активная аэродинамика</li>
+                                <li>Керамические тормозные механизмы PCCB</li>
+                                <li>Спортивная ходовая часть PASM</li>
+                                <li>Система полного привода PTM</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Porsche Taycan Turbo -->
+    <div class="modal fade" id="porscheTaycanModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Porsche Taycan Turbo</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/porsche-taycan.jpg" class="img-fluid rounded" alt="Porsche Taycan Turbo">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Тип двигателя:</strong> Два электромотора</li>
+                                    <li><strong>Мощность:</strong> 680 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 850 Нм</li>
+                                    <li><strong>Батарея:</strong> 93.4 кВт·ч</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.2 с</li>
+                                    <li><strong>Запас хода:</strong> 450 км</li>
+                                    <li><strong>Привод:</strong> Полный</li>
+                                    <li><strong>Быстрая зарядка:</strong> 270 кВт</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Технология 800-вольтовой архитектуры</li>
+                                <li>Адаптивная пневмоподвеска</li>
+                                <li>Система рекуперативного торможения</li>
+                                <li>Спортивный хронометр</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Porsche Cayenne Turbo GT -->
+    <div class="modal fade" id="porscheCayenneModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Porsche Cayenne Turbo GT</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/porsche-cayenne.jpg" class="img-fluid rounded" alt="Porsche Cayenne Turbo GT">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 4.0 л V8 Twin-Turbo</li>
+                                    <li><strong>Мощность:</strong> 640 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 850 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП Tiptronic S</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.3 с</li>
+                                    <li><strong>Макс. скорость:</strong> 300 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (PTM)</li>
+                                    <li><strong>Расход топлива:</strong> 12.9 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Активная подвеска PASM</li>
+                                <li>Керамические тормозные механизмы PCCB</li>
+                                <li>Спортивная выхлопная система</li>
+                                <li>22-дюймовые легкосплавные диски</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dodge Challenger SRT Hellcat -->
+    <div class="modal fade" id="dodgeChallengerModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Dodge Challenger SRT Hellcat</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/dodge-challenger.jpg" class="img-fluid rounded" alt="Dodge Challenger SRT Hellcat">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 6.2 л V8 HEMI Supercharged</li>
+                                    <li><strong>Мощность:</strong> 717 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 889 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП TorqueFlite</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.6 с</li>
+                                    <li><strong>Макс. скорость:</strong> 328 км/ч</li>
+                                    <li><strong>Привод:</strong> Задний</li>
+                                    <li><strong>Расход топлива:</strong> 15.9 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Нагнетатель типа Roots 2.4L</li>
+                                <li>Активная выхлопная система</li>
+                                <li>Спортивные сиденья SRT</li>
+                                <li>Тормозные механизмы Brembo</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dodge Charger SRT Hellcat -->
+    <div class="modal fade" id="dodgeChargerModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Dodge Charger SRT Hellcat</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/dodge-charger.jpg" class="img-fluid rounded" alt="Dodge Charger SRT Hellcat">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 6.2 л V8 HEMI Supercharged</li>
+                                    <li><strong>Мощность:</strong> 717 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 889 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП TorqueFlite</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.7 с</li>
+                                    <li><strong>Макс. скорость:</strong> 315 км/ч</li>
+                                    <li><strong>Привод:</strong> Задний</li>
+                                    <li><strong>Расход топлива:</strong> 16.2 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Адаптивная подвеска SRT</li>
+                                <li>Тормозные механизмы Brembo</li>
+                                <li>Спортивные сиденья с подогревом</li>
+                                <li>Система запуска двигателя с дистанционным управлением</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dodge Viper ACR -->
+    <div class="modal fade" id="dodgeViperModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Dodge Viper ACR</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/dodge-viper.jpg" class="img-fluid rounded" alt="Dodge Viper ACR">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 8.4 л V10 атмосферный</li>
+                                    <li><strong>Мощность:</strong> 645 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 813 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 6-ст. МКПП Tremec</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.0 с</li>
+                                    <li><strong>Макс. скорость:</strong> 285 км/ч</li>
+                                    <li><strong>Привод:</strong> Задний</li>
+                                    <li><strong>Расход топлива:</strong> 14.7 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Аэродинамический комплект Extreme</li>
+                                <li>Тормозные механизмы Brembo</li>
+                                <li>Спортивная подвеска с регулируемыми амортизаторами</li>
+                                <li>Легкосплавные диски из магниевого сплава</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chevrolet Camaro ZL1 -->
+    <div class="modal fade" id="chevroletCamaroModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chevrolet Camaro ZL1</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/chevrolet-camaro.jpg" class="img-fluid rounded" alt="Chevrolet Camaro ZL1">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 6.2 л V8 Supercharged</li>
+                                    <li><strong>Мощность:</strong> 650 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 881 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 10-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.5 с</li>
+                                    <li><strong>Макс. скорость:</strong> 320 км/ч</li>
+                                    <li><strong>Привод:</strong> Задний</li>
+                                    <li><strong>Расход топлива:</strong> 14.2 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Нагнетатель типа Roots 1.7L</li>
+                                <li>Активная выхлопная система</li>
+                                <li>Тормозные механизмы Brembo</li>
+                                <li>Система охлаждения повышенной эффективности</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chevrolet Corvette Stingray -->
+    <div class="modal fade" id="chevroletCorvetteModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chevrolet Corvette Stingray</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/chevrolet-corvette.jpg" class="img-fluid rounded" alt="Chevrolet Corvette Stingray">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 6.2 л V8 LT2</li>
+                                    <li><strong>Мощность:</strong> 495 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 637 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 2.9 с</li>
+                                    <li><strong>Макс. скорость:</strong> 312 км/ч</li>
+                                    <li><strong>Привод:</strong> Задний</li>
+                                    <li><strong>Расход топлива:</strong> 12.1 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Компоновка с центральным расположением двигателя</li>
+                                <li>Съемная крыша Targa</li>
+                                <li>Магниевое управление Ride Control</li>
+                                <li>Система выпуска с активными заслонками</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Chevrolet Tahoe High Country -->
+    <div class="modal fade" id="chevroletTahoeModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Chevrolet Tahoe High Country</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/chevrolet-tahoe.jpg" class="img-fluid rounded" alt="Chevrolet Tahoe High Country">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 6.2 л V8 EcoTec3</li>
+                                    <li><strong>Мощность:</strong> 420 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 624 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 10-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 6.1 с</li>
+                                    <li><strong>Макс. скорость:</strong> 180 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (4WD)</li>
+                                    <li><strong>Расход топлива:</strong> 13.8 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Адаптивная пневмоподвеска Magnetic Ride Control</li>
+                                <li>Кожаная отделка премиум-класса</li>
+                                <li>Панорамная стеклянная крыша</li>
+                                <li>Система полного привода с активным управлением</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ford Mustang GT -->
+    <div class="modal fade" id="fordMustangModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ford Mustang GT</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/ford-mustang.jpg" class="img-fluid rounded" alt="Ford Mustang GT">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 5.0 л V8 Coyote</li>
+                                    <li><strong>Мощность:</strong> 450 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 529 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 10-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 4.3 с</li>
+                                    <li><strong>Макс. скорость:</strong> 250 км/ч</li>
+                                    <li><strong>Привод:</strong> Задний</li>
+                                    <li><strong>Расход топлива:</strong> 12.4 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Активная выхлопная система</li>
+                                <li>Спортивная подвеска MagneRide</li>
+                                <li>Кожаные сиденья с подогревом и вентиляцией</li>
+                                <li>Цифровая приборная панель 12.4"</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ford F-150 Raptor -->
+    <div class="modal fade" id="fordF150Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ford F-150 Raptor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/ford-f150.jpg" class="img-fluid rounded" alt="Ford F-150 Raptor">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 3.5 л V6 EcoBoost</li>
+                                    <li><strong>Мощность:</strong> 450 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 691 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 10-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 5.7 с</li>
+                                    <li><strong>Макс. скорость:</strong> 180 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (4WD)</li>
+                                    <li><strong>Расход топлива:</strong> 13.8 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Подвеска FOX Live Valve</li>
+                                <li>Режимы движения для бездорожья</li>
+                                <li>Кожаные сиденья с подогревом и вентиляцией</li>
+                                <li>Система помощи при движении по бездорожью</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Ford Explorer ST -->
+    <div class="modal fade" id="fordExplorerModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Ford Explorer ST</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/ford-explorer.jpg" class="img-fluid rounded" alt="Ford Explorer ST">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 3.0 л V6 EcoBoost</li>
+                                    <li><strong>Мощность:</strong> 400 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 563 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 10-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 5.5 с</li>
+                                    <li><strong>Макс. скорость:</strong> 230 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (4WD)</li>
+                                    <li><strong>Расход топлива:</strong> 11.9 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Спортивная подвеска с настройками ST</li>
+                                <li>Тормозные механизмы повышенной эффективности</li>
+                                <li>Кожаные сиденья ST с подогревом и вентиляцией</li>
+                                <li>Система полного привода с векторным управлением</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cadillac Escalade-V -->
+    <div class="modal fade" id="cadillacEscaladeModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadillac Escalade-V</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/cadillac-escalade.jpg" class="img-fluid rounded" alt="Cadillac Escalade-V">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 6.2 л V8 Supercharged</li>
+                                    <li><strong>Мощность:</strong> 682 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 885 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 10-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 4.4 с</li>
+                                    <li><strong>Макс. скорость:</strong> 198 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (4WD)</li>
+                                    <li><strong>Расход топлива:</strong> 16.3 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Адаптивная пневмоподвеска Magnetic Ride Control</li>
+                                <li>Тормозные механизмы Brembo</li>
+                                <li>38-дюймовый изогнутый OLED-дисплей</li>
+                                <li>Активная выхлопная система</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cadillac XT5 Sport -->
+    <div class="modal fade" id="cadillacXT5Modal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadillac XT5 Sport</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/cadillac-xt5.jpg" class="img-fluid rounded" alt="Cadillac XT5 Sport">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 3.6 л V6</li>
+                                    <li><strong>Мощность:</strong> 310 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 271 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 9-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 7.5 с</li>
+                                    <li><strong>Макс. скорость:</strong> 210 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (AWD)</li>
+                                    <li><strong>Расход топлива:</strong> 10.2 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Спортивная подвеска с настройками</li>
+                                <li>Кожаная отделка премиум-класса</li>
+                                <li>Панорамная стеклянная крыша</li>
+                                <li>Система полного привода с активным управлением</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cadillac Lyriq -->
+    <div class="modal fade" id="cadillacLyriqModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Cadillac Lyriq</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/cadillac-lyriq.jpg" class="img-fluid rounded" alt="Cadillac Lyriq">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Тип двигателя:</strong> Электромотор</li>
+                                    <li><strong>Мощность:</strong> 340 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 440 Нм</li>
+                                    <li><strong>Батарея:</strong> 102 кВт·ч</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 6.0 с</li>
+                                    <li><strong>Запас хода:</strong> 530 км</li>
+                                    <li><strong>Привод:</strong> Задний</li>
+                                    <li><strong>Быстрая зарядка:</strong> 190 кВт</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>33-дюймовый изогнутый LED-дисплей</li>
+                                <li>Активная пневмоподвеска</li>
+                                <li>Система AKG Studio с 19 динамиками</li>
+                                <li>Панорамная стеклянная крыша с регулируемой прозрачностью</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lamborghini Urus -->
+    <div class="modal fade" id="lamborghiniUrusModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Lamborghini Urus</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/lamborghini-urus.jpg" class="img-fluid rounded" alt="Lamborghini Urus">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 4.0 л V8 Twin-Turbo</li>
+                                    <li><strong>Мощность:</strong> 650 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 850 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.6 с</li>
+                                    <li><strong>Макс. скорость:</strong> 305 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный</li>
+                                    <li><strong>Расход топлива:</strong> 12.7 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Адаптивная пневмоподвеска</li>
+                                <li>Активная система полного привода</li>
+                                <li>Керамические тормозные механизмы</li>
+                                <li>Режимы движения ANIMA</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lamborghini Revuelto -->
+    <div class="modal fade" id="lamborghiniRevueltoModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Lamborghini Revuelto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/lamborghini-revuelto.jpg" class="img-fluid rounded" alt="Lamborghini Revuelto">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 6.5 л V12 + 3 электромотора</li>
+                                    <li><strong>Мощность:</strong> 1015 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 725 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 2.5 с</li>
+                                    <li><strong>Макс. скорость:</strong> 350 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный</li>
+                                    <li><strong>Запас хода на электротяге:</strong> 10 км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Гибридная силовая установка HPEV</li>
+                                <li>Активная аэродинамика</li>
+                                <li>Керамические тормозные механизмы CCB Plus</li>
+                                <li>13 режимов движения</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lamborghini Huracán STO -->
+    <div class="modal fade" id="lamborghiniHuracanModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Lamborghini Huracán STO</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/lamborghini-huracan.jpg" class="img-fluid rounded" alt="Lamborghini Huracán STO">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 5.2 л V10 атмосферный</li>
+                                    <li><strong>Мощность:</strong> 640 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 565 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 7-ст. РКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 3.0 с</li>
+                                    <li><strong>Макс. скорость:</strong> 310 км/ч</li>
+                                    <li><strong>Привод:</strong> Задний</li>
+                                    <li><strong>Расход топлива:</strong> 13.9 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Аэродинамика от гоночного автомобиля</li>
+                                <li>Карбоновая монококовая конструкция</li>
+                                <li>Керамические тормозные механизмы</li>
+                                <li>Режимы движения для трека</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RAM 1500 Tungsten -->
+    <div class="modal fade" id="ramTungstenModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">RAM 1500 Tungsten</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/ram-1500-tungsten.jpg" class="img-fluid rounded" alt="RAM 1500 Tungsten">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 5.7 л V8 HEMI</li>
+                                    <li><strong>Мощность:</strong> 395 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 556 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 6.8 с</li>
+                                    <li><strong>Макс. скорость:</strong> 180 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (4WD)</li>
+                                    <li><strong>Расход топлива:</strong> 13.1 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Роскошная кожаная отделка</li>
+                                <li>Панорамная стеклянная крыша</li>
+                                <li>19-динамиковая аудиосистема Harman Kardon</li>
+                                <li>Система полного привода с активным управлением</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RAM 1500 TRX -->
+    <div class="modal fade" id="ramTRXModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">RAM 1500 TRX</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/ram-1500-trx.jpg" class="img-fluid rounded" alt="RAM 1500 TRX">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 6.2 л V8 Supercharged</li>
+                                    <li><strong>Мощность:</strong> 702 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 881 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 4.5 с</li>
+                                    <li><strong>Макс. скорость:</strong> 190 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (4WD)</li>
+                                    <li><strong>Расход топлива:</strong> 17.0 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Подвеска BILSTEIN Black Hawk e2</li>
+                                <li>Режимы движения для бездорожья</li>
+                                <li>Тормозные механизмы Brembo</li>
+                                <li>Активная выхлопная система</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- RAM 1500 RHO -->
+    <div class="modal fade" id="ramRHOModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">RAM 1500 RHO</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="car-gallery mb-4">
+                        <img src="images/cars/ram-1500-rho.jpg" class="img-fluid rounded" alt="RAM 1500 RHO">
+                    </div>
+                    <div class="car-details">
+                        <h4>Характеристики</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Двигатель:</strong> 3.0 л I6 Twin-Turbo Hurricane</li>
+                                    <li><strong>Мощность:</strong> 540 л.с.</li>
+                                    <li><strong>Крутящий момент:</strong> 710 Нм</li>
+                                    <li><strong>Коробка передач:</strong> 8-ст. АКПП</li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <ul class="list-unstyled">
+                                    <li><strong>Разгон 0-100 км/ч:</strong> 5.6 с</li>
+                                    <li><strong>Макс. скорость:</strong> 185 км/ч</li>
+                                    <li><strong>Привод:</strong> Полный (4WD)</li>
+                                    <li><strong>Расход топлива:</strong> 12.5 л/100км</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="features mt-4">
+                            <h5>Особенности</h5>
+                            <ul>
+                                <li>Подвеска повышенной проходимости</li>
+                                <li>Режимы движения для бездорожья</li>
+                                <li>Кожаная отделка премиум-класса</li>
+                                <li>Система помощи при движении по бездорожью</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Наш скрипт -->
+    <script src="scripts/script.js"></script>
+</body>
+</html>
