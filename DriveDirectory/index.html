@@ -10,8 +10,572 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- Иконки -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <!-- Наш файл стилей -->
-    <link rel="stylesheet" href="styles/style.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #e74c3c;
+            --accent-color: #3498db;
+            --dark-color: #1a1a1a;
+            --light-color: #ecf0f1;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            padding-top: 80px;
+        }
+
+        .navbar {
+            background: rgba(44, 62, 80, 0.95) !important;
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            color: var(--light-color) !important;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--light-color) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--secondary-color) !important;
+        }
+
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(231, 76, 60, 0.6)),
+                        url('../images/hero-bg.jpg') no-repeat center center;
+            background-size: cover;
+            height: 100vh;
+            min-height: 700px;
+            position: relative;
+        }
+
+        .hero-section h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-stats {
+            margin-top: 3rem;
+        }
+
+        .stat-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem 1rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            color: var(--light-color);
+            margin: 0;
+        }
+
+        .brands-section {
+            background: var(--light-color);
+        }
+
+        .brand-logo {
+            padding: 2rem 1rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .brand-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .brand-logo i {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            display: block;
+            margin-bottom: 1rem;
+        }
+
+        .brand-logo span {
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .car-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            background: white;
+            cursor: pointer;
+        }
+
+        .car-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .card-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-img-top {
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .car-card:hover .card-img-top {
+            transform: scale(1.05);
+        }
+
+        .card-overlay {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--secondary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-weight: 600;
+        }
+
+        .car-specs {
+            display: flex;
+            justify-content: space-between;
+            margin: 1rem 0;
+        }
+
+        .spec-item {
+            text-align: center;
+            flex: 1;
+        }
+
+        .spec-item i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.3rem;
+        }
+
+        .spec-item span {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        .brand-section {
+            padding: 2rem 0;
+        }
+
+        .brand-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .brand-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: var(--secondary-color);
+        }
+
+        .why-us-section {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #34495e 100%);
+            color: white;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            height: 100%;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+        }
+
+        .feature-icon i {
+            font-size: 2rem;
+            color: white;
+        }
+
+        .feature-card h4 {
+            color: var(--light-color);
+            margin-bottom: 1rem;
+        }
+
+        .feature-card p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        .cta-section {
+            background: rgba(255,255,255,0.1);
+            padding: 3rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-info .col-md-4 {
+            text-align: center;
+            padding: 1rem;
+        }
+
+        .contact-info i {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .contact-info h5 {
+            color: var(--light-color);
+            font-weight: 500;
+        }
+
+        .footer-section {
+            background: var(--dark-color);
+            color: var(--light-color);
+        }
+
+        .social-links a {
+            color: var(--light-color);
+            font-size: 1.5rem;
+            margin-left: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: var(--secondary-color);
+        }
+
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        .modal-header {
+            background: var(--primary-color);
+            color: white;
+            border-bottom: 2px solid var(--secondary-color);
+            border-radius: 15px 15px 0 0;
+        }
+
+        .modal-title {
+            font-weight: 600;
+        }
+
+        .btn-close {
+            filter: invert(1);
+        }
+
+        .car-gallery {
+            text-align: center;
+        }
+
+        .main-photo {
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 10px;
+            width: 100%;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-thumbs {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+
+        .thumb {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            opacity: 0.7;
+        }
+
+        .thumb:hover {
+            transform: scale(1.1);
+            opacity: 1;
+        }
+
+        .thumb.active {
+            border-color: var(--secondary-color);
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .car-details h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        .car-details ul li {
+            padding: 0.3rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .car-details ul li:last-child {
+            border-bottom: none;
+        }
+
+        .features {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .features h5 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        .features ul {
+            margin-bottom: 0;
+        }
+
+        .features li {
+            padding: 0.2rem 0;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .features li:before {
+            content: "✓";
+            color: var(--secondary-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .modal-footer {
+            border-top: 1px solid #dee2e6;
+            background: #f8f9fa;
+            border-radius: 0 0 15px 15px;
+        }
+
+        /* Стили для кнопки избранного */
+        .btn-favorite {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 10;
+            font-size: 1.2rem;
+        }
+
+        .btn-favorite:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+
+        .btn-favorite.active {
+            color: var(--secondary-color);
+        }
+
+        .btn-favorite.active i {
+            font-weight: 900;
+        }
+
+        /* Бейдж для избранного */
+        .favorites-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Анимация для уведомлений */
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        .alert {
+            animation: slideInRight 0.3s ease;
+        }
+
+        /* Стили для модального окна избранного */
+        .favorite-card {
+            border: 1px solid #dee2e6;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .favorite-card:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .favorite-card img {
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .brand-title {
+                font-size: 2rem;
+            }
+
+            body {
+                padding-top: 70px;
+            }
+
+            .modal-dialog {
+                margin: 0.5rem;
+            }
+
+            .gallery-thumbs {
+                flex-wrap: wrap;
+            }
+
+            .thumb {
+                width: 60px;
+                height: 45px;
+            }
+
+            .favorite-card img {
+                height: 100px;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Стили для активного состояния брендов */
+        .brand-logo.active {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+            border: 2px solid var(--secondary-color);
+        }
+    </style>
 </head>
 <body>
 
@@ -30,6 +594,13 @@
                     <li class="nav-item"><a class="nav-link" href="#catalog">Каталог</a></li>
                     <li class="nav-item"><a class="nav-link" href="#brands">Бренды</a></li>
                     <li class="nav-item"><a class="nav-link" href="#why-us">Почему мы</a></li>
+                    <!-- Кнопка избранного -->
+                    <li class="nav-item">
+                        <a class="nav-link position-relative" href="#" onclick="showFavorites(); return false;">
+                            <i class="fas fa-heart"></i> Избранное
+                            <span id="favoritesBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
+                        </a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -145,9 +716,13 @@
                 <div class="row g-4">
                     <!-- BMW M5 Competition -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#bmwM5Modal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/bmw-m5-1.jpg" class="card-img-top" alt="BMW M5 Competition">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('bmw-m5-competition', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 12.900.000 ₽</span>
                                 </div>
@@ -170,13 +745,22 @@
                                 </div>
                                 <p class="card-text">Легендарный спортивный седан с технологиями Formula 1</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#bmwM5Modal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- BMW X5 M Competition -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#bmwX5Modal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/bmw-x5-1.jpg" class="card-img-top" alt="BMW X5 M Competition">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('bmw-x5-competition', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 10.200.000 ₽</span>
                                 </div>
@@ -199,13 +783,22 @@
                                 </div>
                                 <p class="card-text">Мощный SUV с характером спортивного автомобиля</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#bmwX5Modal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- BMW i7 xDrive60 -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#bmwI7Modal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/bmw-i7-1.jpg" class="card-img-top" alt="BMW i7 xDrive60">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('bmw-i7-xdrive60', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 9.800.000 ₽</span>
                                 </div>
@@ -228,6 +821,11 @@
                                 </div>
                                 <p class="card-text">Флагманский электромобиль с инновационными технологиями</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#bmwI7Modal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -239,9 +837,13 @@
                 <div class="row g-4">
                     <!-- Mercedes-AMG G 63 -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#mercedesG63Modal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/mercedes-g63-1.jpg" class="card-img-top" alt="Mercedes-AMG G 63">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('mercedes-amg-g63', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 18.500.000 ₽</span>
                                 </div>
@@ -264,13 +866,22 @@
                                 </div>
                                 <p class="card-text">Легендарный внедорожник с характером AMG</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#mercedesG63Modal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Mercedes-Benz S 580 -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#mercedesS580Modal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/mercedes-sclass-1.jpg" class="card-img-top" alt="Mercedes-Benz S 580">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('mercedes-s580', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 11.900.000 ₽</span>
                                 </div>
@@ -293,13 +904,22 @@
                                 </div>
                                 <p class="card-text">Идеальное сочетание роскоши и технологий</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#mercedesS580Modal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Mercedes-Benz EQS 580 -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#mercedesEQSModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/mercedes-eqs-1.jpg" class="card-img-top" alt="Mercedes-Benz EQS 580">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('mercedes-eqs580', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 8.900.000 ₽</span>
                                 </div>
@@ -322,6 +942,11 @@
                                 </div>
                                 <p class="card-text">Электрический флагман с рекордным запасом хода</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#mercedesEQSModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -333,9 +958,13 @@
                 <div class="row g-4">
                     <!-- Audi RS6 Avant -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#audiRS6Modal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/audi-rs6-1.jpg" class="card-img-top" alt="Audi RS6 Avant">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('audi-rs6-avant', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 11.200.000 ₽</span>
                                 </div>
@@ -358,13 +987,22 @@
                                 </div>
                                 <p class="card-text">Самый быстрый универсал в мире</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#audiRS6Modal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Audi R8 V10 Plus -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#audiR8Modal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/audi-r8-1.jpg" class="card-img-top" alt="Audi R8 V10 Plus">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('audi-r8-v10-plus', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 14.500.000 ₽</span>
                                 </div>
@@ -387,13 +1025,22 @@
                                 </div>
                                 <p class="card-text">Суперкар с атмосферным двигателем</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#audiR8Modal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Audi e-tron GT -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#audiETronModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/audi-etron-1.jpg" class="card-img-top" alt="Audi e-tron GT">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('audi-etron-gt', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 9.500.000 ₽</span>
                                 </div>
@@ -416,6 +1063,11 @@
                                 </div>
                                 <p class="card-text">Электрический гран туризмо</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#audiETronModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -427,9 +1079,13 @@
                 <div class="row g-4">
                     <!-- Porsche 911 Turbo S -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#porsche911Modal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/porsche-911-1.jpg" class="card-img-top" alt="Porsche 911 Turbo S">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('porsche-911-turbo-s', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 16.500.000 ₽</span>
                                 </div>
@@ -452,13 +1108,22 @@
                                 </div>
                                 <p class="card-text">Икона спортивных автомобилей с невероятной динамикой</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#porsche911Modal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Porsche Taycan Turbo -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#porscheTaycanModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/porsche-taycan-1.jpg" class="card-img-top" alt="Porsche Taycan Turbo">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('porsche-taycan-turbo', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 12.300.000 ₽</span>
                                 </div>
@@ -481,13 +1146,22 @@
                                 </div>
                                 <p class="card-text">Электрический спорткар с ДНК Porsche</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#porscheTaycanModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Porsche Cayenne Turbo GT -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#porscheCayenneModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/porsche-cayenne-1.jpg" class="card-img-top" alt="Porsche Cayenne Turbo GT">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('porsche-cayenne-turbo-gt', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 13.800.000 ₽</span>
                                 </div>
@@ -510,6 +1184,11 @@
                                 </div>
                                 <p class="card-text">Самый быстрый SUV на Нюрбургринге</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#porscheCayenneModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -521,9 +1200,13 @@
                 <div class="row g-4">
                     <!-- Dodge Challenger SRT Hellcat -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#dodgeChallengerModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/dodge-challenger-1.jpg" class="card-img-top" alt="Dodge Challenger SRT Hellcat">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('dodge-challenger-hellcat', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 8.900.000 ₽</span>
                                 </div>
@@ -546,13 +1229,22 @@
                                 </div>
                                 <p class="card-text">Американский мускул-кар с адским характером</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#dodgeChallengerModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Dodge Charger SRT Hellcat -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#dodgeChargerModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/dodge-charger-1.jpg" class="card-img-top" alt="Dodge Charger SRT Hellcat">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('dodge-charger-hellcat', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 9.200.000 ₽</span>
                                 </div>
@@ -575,13 +1267,22 @@
                                 </div>
                                 <p class="card-text">Четырехдверный мускул-кар с невероятной мощностью</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#dodgeChargerModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Dodge Viper ACR -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#dodgeViperModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/dodge-viper-1.jpg" class="card-img-top" alt="Dodge Viper ACR">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('dodge-viper-acr', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 15.000.000 ₽</span>
                                 </div>
@@ -604,6 +1305,11 @@
                                 </div>
                                 <p class="card-text">Легендарный американский суперкар</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#dodgeViperModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -615,9 +1321,13 @@
                 <div class="row g-4">
                     <!-- Chevrolet Camaro ZL1 -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#chevroletCamaroModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/chevrolet-camaro-1.jpg" class="card-img-top" alt="Chevrolet Camaro ZL1">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('chevrolet-camaro-zl1', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 7.500.000 ₽</span>
                                 </div>
@@ -640,13 +1350,22 @@
                                 </div>
                                 <p class="card-text">Икона американского автомобилестроения</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#chevroletCamaroModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Chevrolet Corvette Stingray -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#chevroletCorvetteModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/chevrolet-corvette-1.jpg" class="card-img-top" alt="Chevrolet Corvette Stingray">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('chevrolet-corvette-stingray', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 8.200.000 ₽</span>
                                 </div>
@@ -669,13 +1388,22 @@
                                 </div>
                                 <p class="card-text">Американский суперкар с заднемоторной компоновкой</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#chevroletCorvetteModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Chevrolet Tahoe High Country -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#chevroletTahoeModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/chevrolet-tahoe-1.jpg" class="card-img-top" alt="Chevrolet Tahoe High Country">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('chevrolet-tahoe-high-country', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 6.800.000 ₽</span>
                                 </div>
@@ -698,6 +1426,11 @@
                                 </div>
                                 <p class="card-text">Флагманский полноразмерный SUV</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#chevroletTahoeModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -709,9 +1442,13 @@
                 <div class="row g-4">
                     <!-- Ford Mustang GT -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#fordMustangModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/ford-mustang-1.jpg" class="card-img-top" alt="Ford Mustang GT">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('ford-mustang-gt', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 5.900.000 ₽</span>
                                 </div>
@@ -734,13 +1471,22 @@
                                 </div>
                                 <p class="card-text">Легендарный пони-кар</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#fordMustangModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Ford F-150 Raptor -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#fordF150Modal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/ford-f150-1.jpg" class="card-img-top" alt="Ford F-150 Raptor">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('ford-f150-raptor', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 7.200.000 ₽</span>
                                 </div>
@@ -763,13 +1509,22 @@
                                 </div>
                                 <p class="card-text">Внедорожный пикап для экстремальных условий</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#fordF150Modal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Ford Explorer ST -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#fordExplorerModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/ford-explorer-1.jpg" class="card-img-top" alt="Ford Explorer ST">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('ford-explorer-st', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 6.500.000 ₽</span>
                                 </div>
@@ -792,6 +1547,11 @@
                                 </div>
                                 <p class="card-text">Спортивный SUV для всей семьи</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#fordExplorerModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -803,9 +1563,13 @@
                 <div class="row g-4">
                     <!-- Cadillac Escalade-V -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#cadillacEscaladeModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/cadillac-escalade-1.jpg" class="card-img-top" alt="Cadillac Escalade-V">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('cadillac-escalade-v', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 12.500.000 ₽</span>
                                 </div>
@@ -828,13 +1592,22 @@
                                 </div>
                                 <p class="card-text">Самый мощный полноразмерный SUV в мире</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#cadillacEscaladeModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Cadillac XT5 Sport -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#cadillacXT5Modal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/cadillac-xt5-1.jpg" class="card-img-top" alt="Cadillac XT5 Sport">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('cadillac-xt5-sport', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 5.200.000 ₽</span>
                                 </div>
@@ -857,13 +1630,22 @@
                                 </div>
                                 <p class="card-text">Премиальный кроссовер с американским характером</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#cadillacXT5Modal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Cadillac Lyriq -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#cadillacLyriqModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/cadillac-lyriq-1.jpg" class="card-img-top" alt="Cadillac Lyriq">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('cadillac-lyriq', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 6.800.000 ₽</span>
                                 </div>
@@ -886,6 +1668,11 @@
                                 </div>
                                 <p class="card-text">Электрический флагман нового поколения</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#cadillacLyriqModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -897,9 +1684,13 @@
                 <div class="row g-4">
                     <!-- Lamborghini Urus -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#lamborghiniUrusModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/lamborghini-urus-1.jpg" class="card-img-top" alt="Lamborghini Urus">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('lamborghini-urus', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 22.000.000 ₽</span>
                                 </div>
@@ -922,13 +1713,22 @@
                                 </div>
                                 <p class="card-text">Самый быстрый SUV в мире</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#lamborghiniUrusModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Lamborghini Revuelto -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#lamborghiniRevueltoModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/lamborghini-revuelto-1.jpg" class="card-img-top" alt="Lamborghini Revuelto">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('lamborghini-revuelto', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 45.000.000 ₽</span>
                                 </div>
@@ -951,13 +1751,22 @@
                                 </div>
                                 <p class="card-text">Гиперкар нового поколения с гибридной силовой установкой</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#lamborghiniRevueltoModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- Lamborghini Huracán STO -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#lamborghiniHuracanModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/lamborghini-huracan-1.jpg" class="card-img-top" alt="Lamborghini Huracán STO">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('lamborghini-huracan-sto', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 28.500.000 ₽</span>
                                 </div>
@@ -980,6 +1789,11 @@
                                 </div>
                                 <p class="card-text">Трековый монстр для дорог общего пользования</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#lamborghiniHuracanModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -991,9 +1805,13 @@
                 <div class="row g-4">
                     <!-- RAM 1500 Tungsten -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#ramTungstenModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/ram-1500-tungsten-1.jpg" class="card-img-top" alt="RAM 1500 Tungsten">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('ram-1500-tungsten', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 6.200.000 ₽</span>
                                 </div>
@@ -1016,13 +1834,22 @@
                                 </div>
                                 <p class="card-text">Роскошный пикап премиум-класса</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ramTungstenModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- RAM 1500 TRX -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#ramTRXModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/ram-1500-trx-1.jpg" class="card-img-top" alt="RAM 1500 TRX">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('ram-1500-trx', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 12.500.000 ₽</span>
                                 </div>
@@ -1045,13 +1872,22 @@
                                 </div>
                                 <p class="card-text">Самый мощный серийный пикап в мире</p>
                             </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ramTRXModal">
+                                    Подробнее
+                                </button>
+                            </div>
                         </div>
                     </div>
                     <!-- RAM 1500 RHO -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#ramRHOModal">
-                            <div class="card-image">
+                        <div class="card h-100 car-card">
+                            <div class="card-image position-relative">
                                 <img src="images/cars/ram-1500-rho-1.jpg" class="card-img-top" alt="RAM 1500 RHO">
+                                <!-- Кнопка избранного -->
+                                <button class="btn-favorite" onclick="toggleFavorite('ram-1500-rho', this)">
+                                    <i class="far fa-heart"></i>
+                                </button>
                                 <div class="card-overlay">
                                     <span class="price">от 8.900.000 ₽</span>
                                 </div>
@@ -1073,6 +1909,11 @@
                                     </div>
                                 </div>
                                 <p class="card-text">Высокопроизводительный пикап для бездорожья</p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary w-100" data-bs-toggle="modal" data-bs-target="#ramRHOModal">
+                                    Подробнее
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -2826,9 +3667,278 @@
         </div>
     </div>
 
+    <!-- Модальное окно избранного -->
+    <div class="modal fade" id="favoritesModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Избранные автомобили</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="favoritesList" class="row">
+                        <!-- Сюда будут добавляться избранные автомобили -->
+                    </div>
+                    <div id="emptyFavorites" class="text-center py-5" style="display: none;">
+                        <i class="fas fa-heart-broken fa-3x text-muted mb-3"></i>
+                        <h5>Пока нет избранных автомобилей</h5>
+                        <p class="text-muted">Добавьте автомобили в избранное, нажав на сердечко</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                    <button type="button" class="btn btn-danger" onclick="clearAllFavorites()">Очистить все</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Наш скрипт -->
-    <script src="scripts/script.js"></script>
+    <script>
+        // Система избранного
+        let favorites = JSON.parse(localStorage.getItem('favoriteCars')) || [];
+
+        // Функция для добавления/удаления из избранного
+        function toggleFavorite(carId, button) {
+            const index = favorites.indexOf(carId);
+            
+            if (index > -1) {
+                // Удаляем из избранного
+                favorites.splice(index, 1);
+                button.classList.remove('active');
+                button.innerHTML = '<i class="far fa-heart"></i>';
+                showNotification('Удалено из избранного', 'warning');
+            } else {
+                // Добавляем в избранное
+                favorites.push(carId);
+                button.classList.add('active');
+                button.innerHTML = '<i class="fas fa-heart"></i>';
+                showNotification('Добавлено в избранное', 'success');
+            }
+            
+            // Сохраняем в localStorage
+            localStorage.setItem('favoriteCars', JSON.stringify(favorites));
+            updateFavoritesBadge();
+        }
+
+        // Функция для обновления бейджа
+        function updateFavoritesBadge() {
+            const badge = document.getElementById('favoritesBadge');
+            if (badge) {
+                badge.textContent = favorites.length;
+                badge.style.display = favorites.length > 0 ? 'inline-block' : 'none';
+            }
+        }
+
+        // Функция для показа избранных автомобилей
+        function showFavorites() {
+            const favoritesList = document.getElementById('favoritesList');
+            const emptyFavorites = document.getElementById('emptyFavorites');
+            
+            if (favorites.length === 0) {
+                favoritesList.innerHTML = '';
+                emptyFavorites.style.display = 'block';
+            } else {
+                emptyFavorites.style.display = 'none';
+                favoritesList.innerHTML = favorites.map(carId => {
+                    // Здесь нужно добавить логику для получения данных об автомобиле по carId
+                    // Пока используем заглушку
+                    return `
+                        <div class="col-md-6 mb-3">
+                            <div class="favorite-card">
+                                <div class="row g-3">
+                                    <div class="col-4">
+                                        <img src="images/cars/${carId}-1.jpg" class="img-fluid rounded" alt="${carId}" onerror="this.src='images/placeholder.jpg'">
+                                    </div>
+                                    <div class="col-8">
+                                        <h6>${getCarTitle(carId)}</h6>
+                                        <p class="text-muted mb-2">${getCarDescription(carId)}</p>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <span class="price">${getCarPrice(carId)}</span>
+                                            <button class="btn btn-sm btn-outline-danger" onclick="removeFavorite('${carId}')">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+            
+            // Показываем модальное окно
+            const modal = new bootstrap.Modal(document.getElementById('favoritesModal'));
+            modal.show();
+        }
+
+        // Функция для удаления из избранного
+        function removeFavorite(carId) {
+            const index = favorites.indexOf(carId);
+            if (index > -1) {
+                favorites.splice(index, 1);
+                localStorage.setItem('favoriteCars', JSON.stringify(favorites));
+                updateFavoritesBadge();
+                showFavorites(); // Обновляем список
+                showNotification('Удалено из избранного', 'warning');
+                
+                // Обновляем кнопку в основном каталоге
+                const buttons = document.querySelectorAll(`[onclick="toggleFavorite('${carId}', this)"]`);
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.innerHTML = '<i class="far fa-heart"></i>';
+                });
+            }
+        }
+
+        // Функция для очистки всех избранных
+        function clearAllFavorites() {
+            if (confirm('Вы уверены, что хотите очистить все избранные автомобили?')) {
+                favorites = [];
+                localStorage.setItem('favoriteCars', JSON.stringify(favorites));
+                updateFavoritesBadge();
+                
+                // Обновляем все кнопки в каталоге
+                const buttons = document.querySelectorAll('.btn-favorite');
+                buttons.forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.innerHTML = '<i class="far fa-heart"></i>';
+                });
+                
+                showNotification('Все автомобили удалены из избранного', 'info');
+                
+                // Закрываем модальное окно
+                const modal = bootstrap.Modal.getInstance(document.getElementById('favoritesModal'));
+                modal.hide();
+            }
+        }
+
+        // Вспомогательные функции для получения данных об автомобилях
+        function getCarTitle(carId) {
+            const titles = {
+                'bmw-m5-competition': 'BMW M5 Competition',
+                'bmw-x5-competition': 'BMW X5 M Competition',
+                'bmw-i7-xdrive60': 'BMW i7 xDrive60',
+                'mercedes-amg-g63': 'Mercedes-AMG G 63',
+                'mercedes-s580': 'Mercedes-Benz S 580',
+                'mercedes-eqs580': 'Mercedes-Benz EQS 580',
+                'audi-rs6-avant': 'Audi RS6 Avant',
+                'audi-r8-v10-plus': 'Audi R8 V10 Plus',
+                'audi-etron-gt': 'Audi e-tron GT',
+                'porsche-911-turbo-s': 'Porsche 911 Turbo S',
+                'porsche-taycan-turbo': 'Porsche Taycan Turbo',
+                'porsche-cayenne-turbo-gt': 'Porsche Cayenne Turbo GT',
+                'dodge-challenger-hellcat': 'Dodge Challenger SRT Hellcat',
+                'dodge-charger-hellcat': 'Dodge Charger SRT Hellcat',
+                'dodge-viper-acr': 'Dodge Viper ACR',
+                'chevrolet-camaro-zl1': 'Chevrolet Camaro ZL1',
+                'chevrolet-corvette-stingray': 'Chevrolet Corvette Stingray',
+                'chevrolet-tahoe-high-country': 'Chevrolet Tahoe High Country',
+                'ford-mustang-gt': 'Ford Mustang GT',
+                'ford-f150-raptor': 'Ford F-150 Raptor',
+                'ford-explorer-st': 'Ford Explorer ST',
+                'cadillac-escalade-v': 'Cadillac Escalade-V',
+                'cadillac-xt5-sport': 'Cadillac XT5 Sport',
+                'cadillac-lyriq': 'Cadillac Lyriq',
+                'lamborghini-urus': 'Lamborghini Urus',
+                'lamborghini-revuelto': 'Lamborghini Revuelto',
+                'lamborghini-huracan-sto': 'Lamborghini Huracán STO',
+                'ram-1500-tungsten': 'RAM 1500 Tungsten',
+                'ram-1500-trx': 'RAM 1500 TRX',
+                'ram-1500-rho': 'RAM 1500 RHO'
+            };
+            return titles[carId] || carId;
+        }
+
+        function getCarDescription(carId) {
+            const descriptions = {
+                'bmw-m5-competition': 'Легендарный спортивный седан',
+                'bmw-x5-competition': 'Мощный SUV с характером',
+                'cadillac-escalade-v': 'Самый мощный полноразмерный SUV',
+                'cadillac-lyriq': 'Электрический флагман'
+            };
+            return descriptions[carId] || 'Премиальный автомобиль';
+        }
+
+        function getCarPrice(carId) {
+            const prices = {
+                'bmw-m5-competition': 'от 12.900.000 ₽',
+                'cadillac-escalade-v': 'от 12.500.000 ₽',
+                'cadillac-lyriq': 'от 6.800.000 ₽'
+            };
+            return prices[carId] || 'Цена по запросу';
+        }
+
+        // Функция для показа уведомлений
+        function showNotification(message, type = 'info') {
+            const alertClass = {
+                'success': 'alert-success',
+                'warning': 'alert-warning',
+                'error': 'alert-danger',
+                'info': 'alert-info'
+            }[type] || 'alert-info';
+            
+            const notification = document.createElement('div');
+            notification.className = `alert ${alertClass} alert-dismissible fade show position-fixed`;
+            notification.style.cssText = `
+                top: 20px;
+                right: 20px;
+                z-index: 9999;
+                min-width: 300px;
+            `;
+            notification.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Автоматическое скрытие через 3 секунды
+            setTimeout(() => {
+                if (notification.parentNode) {
+                    notification.remove();
+                }
+            }, 3000);
+        }
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            updateFavoritesBadge();
+            
+            // Восстанавливаем состояние кнопок избранного
+            favorites.forEach(carId => {
+                const buttons = document.querySelectorAll(`[onclick="toggleFavorite('${carId}', this)"]`);
+                buttons.forEach(btn => {
+                    btn.classList.add('active');
+                    btn.innerHTML = '<i class="fas fa-heart"></i>';
+                });
+            });
+        });
+
+        // Функция для галереи изображений
+        function initCarGallery() {
+            const thumbs = document.querySelectorAll('.thumb');
+            
+            thumbs.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    // Убираем активный класс у всех миниатюр
+                    thumbs.forEach(t => t.classList.remove('active'));
+                    
+                    // Добавляем активный класс текущей миниатюре
+                    this.classList.add('active');
+                    
+                    // Меняем главное фото
+                    const mainPhoto = this.closest('.car-gallery').querySelector('.main-photo');
+                    const fullSizeImage = this.getAttribute('data-full');
+                    mainPhoto.src = fullSizeImage;
+                    mainPhoto.alt = this.alt;
+                });
+            });
+        }
+
+        // Инициализация галереи при загрузке
+        document.addEventListener('DOMContentLoaded', initCarGallery);
+    </script>
 </body>
 </html>

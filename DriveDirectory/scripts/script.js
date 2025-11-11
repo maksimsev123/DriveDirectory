@@ -1,3 +1,5 @@
+// scripts/script.js
+
 // Функция для переключения фото в галерее
 function initCarGallery() {
     const thumbs = document.querySelectorAll('.thumb');
@@ -94,7 +96,7 @@ function displayCars(cars) {
     container.innerHTML = cars.map(car => `
         <div class="col-md-6 col-lg-4 mb-4">
             <div class="car-card card h-100">
-                <img src="${car.image_path || 'images/placeholder.jpg'}"
+<img src="${car.images && car.images.length > 0 ? car.images[0] : 'images/placeholder.jpg'}"
                      class="card-img-top"
                      alt="${car.brand} ${car.model}"
                      onerror="this.src='images/placeholder.jpg'">
@@ -290,12 +292,318 @@ function animateCounters() {
     });
 }
 
+// 1. Функция для фильтрации автомобилей по брендам
+function initBrandFilter() {
+    const brandButtons = document.querySelectorAll('.brand-logo');
+    
+    brandButtons.forEach(button => {
+        button.addEventListener('click', async function() {
+            const brandName = this.querySelector('span').textContent;
+            
+            // Убираем активный класс у всех кнопок
+            brandButtons.forEach(btn => btn.classList.remove('active'));
+            // Добавляем активный класс текущей кнопке
+            this.classList.add('active');
+            
+            try {
+                const response = await fetch(`/api/cars/brand/${encodeURIComponent(brandName)}`);
+                const cars = await response.json();
+                updateCarsDisplay(cars, brandName);
+            } catch (error) {
+                console.error('Error filtering by brand:', error);
+            }
+        });
+    });
+}
+
+// 2. Функция для обновления отображения автомобилей с анимацией
+function updateCarsDisplay(cars, brandName = null) {
+    const catalogSection = document.getElementById('catalog');
+    const existingBrandSections = catalogSection.querySelectorAll('.brand-section');
+    
+    // Удаляем существующие секции брендов
+    existingBrandSections.forEach(section => section.remove());
+    
+    if (cars.length === 0) {
+        catalogSection.innerHTML += `
+            <div class="text-center py-5">
+                <h4>Автомобили не найдены</h4>
+                <p>Попробуйте выбрать другой бренд</p>
+            </div>
+        `;
+        return;
+    }
+    
+    // Группируем автомобили по брендам
+    const carsByBrand = {};
+    cars.forEach(car => {
+        if (!carsByBrand[car.brand]) {
+            carsByBrand[car.brand] = [];
+        }
+        carsByBrand[car.brand].push(car);
+    });
+    
+    // Создаем секции для каждого бренда
+    Object.keys(carsByBrand).forEach(brand => {
+        const brandCars = carsByBrand[brand];
+        const brandSection = document.createElement('div');
+        brandSection.className = 'brand-section mb-5';
+        brandSection.innerHTML = `
+            <h3 class="brand-title mb-4">${brand}</h3>
+            <div class="row g-4" id="cars-${brand.toLowerCase()}">
+                ${brandCars.map(car => `
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card h-100 car-card" data-bs-toggle="modal" data-bs-target="#carModal${car.id}">
+                            <div class="card-image">
+                                <img src="${car.images && car.images.length > 0 ? car.images[0] : 'images/placeholder.jpg'}" 
+                                     class="card-img-top" 
+                                     alt="${car.brand} ${car.model}"
+                                     onerror="this.src='images/placeholder.jpg'">
+                                <div class="card-overlay">
+                                    <span class="price">${formatPrice(car.price)}</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h5 class="card-title">${car.brand} ${car.model}</h5>
+                                <div class="car-specs">
+                                    <div class="spec-item">
+                                        <i class="fas fa-tachometer-alt"></i>
+                                        <span>${car.horsepower || 'N/A'} л.с.</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-rocket"></i>
+                                        <span>${car.acceleration || 'N/A'} с</span>
+                                    </div>
+                                    <div class="spec-item">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <span>${car.year}</span>
+                                    </div>
+                                </div>
+                                <p class="card-text">${car.description || 'Описание временно недоступно'}</p>
+                            </div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+        `;
+        catalogSection.appendChild(brandSection);
+    });
+    
+    // Переинициализируем анимации
+    initScrollAnimations();
+    
+    // Прокручиваем к каталогу если фильтровали
+    if (brandName) {
+        setTimeout(() => {
+            catalogSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 300);
+    }
+}
+
+// 3. Функция для управления избранными автомобилями
+function initFavorites() {
+    let favorites = JSON.parse(localStorage.getItem('favoriteCars')) || [];
+    
+    // Функция добавления/удаления из избранного
+    window.toggleFavorite = function(carId, carData = null) {
+        const index = favorites.findIndex(fav => fav.id === carId);
+        
+        if (index > -1) {
+            // Удаляем из избранного
+            favorites.splice(index, 1);
+            updateFavoriteButton(carId, false);
+        } else {
+            // Добавляем в избранное
+            if (carData) {
+                favorites.push({
+                    id: carId,
+                    brand: carData.brand,
+                    model: carData.model,
+                    price: carData.price,
+                    image: carData.images ? carData.images[0] : 'images/placeholder.jpg',
+                    addedAt: new Date().toISOString()
+                });
+            } else {
+                favorites.push({ id: carId, addedAt: new Date().toISOString() });
+            }
+            updateFavoriteButton(carId, true);
+        }
+        
+        // Сохраняем в localStorage
+        localStorage.setItem('favoriteCars', JSON.stringify(favorites));
+        updateFavoritesBadge();
+        
+        // Показываем уведомление
+        showNotification(
+            index > -1 ? 'Удалено из избранного' : 'Добавлено в избранное',
+            index > -1 ? 'warning' : 'success'
+        );
+    };
+    
+    // Функция обновления кнопки избранного
+    function updateFavoriteButton(carId, isFavorite) {
+        const buttons = document.querySelectorAll(`[onclick="toggleFavorite(${carId})"]`);
+        buttons.forEach(button => {
+            if (isFavorite) {
+                button.innerHTML = '<i class="fas fa-heart"></i> В избранном';
+                button.classList.remove('btn-outline-danger');
+                button.classList.add('btn-danger');
+            } else {
+                button.innerHTML = '<i class="far fa-heart"></i> В избранное';
+                button.classList.remove('btn-danger');
+                button.classList.add('btn-outline-danger');
+            }
+        });
+    }
+    
+    // Функция обновления бейджа с количеством избранных
+    function updateFavoritesBadge() {
+        const badge = document.getElementById('favoritesBadge');
+        if (badge) {
+            badge.textContent = favorites.length;
+            badge.style.display = favorites.length > 0 ? 'inline-block' : 'none';
+        }
+    }
+    
+    // Функция показа избранных автомобилей
+    window.showFavorites = function() {
+        if (favorites.length === 0) {
+            showNotification('У вас пока нет избранных автомобилей', 'info');
+            return;
+        }
+        
+        const favoriteCarsList = favorites.map(fav => `
+            <div class="col-md-6 col-lg-4 mb-3">
+                <div class="card">
+                    <img src="${fav.image}" class="card-img-top" alt="${fav.brand} ${fav.model}">
+                    <div class="card-body">
+                        <h6>${fav.brand} ${fav.model}</h6>
+                        <p class="mb-1">${formatPrice(fav.price)}</p>
+                        <button class="btn btn-sm btn-outline-danger" onclick="toggleFavorite(${fav.id})">
+                            <i class="fas fa-trash"></i> Удалить
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `).join('');
+        
+        // Создаем модальное окно избранного
+        const modalHTML = `
+            <div class="modal fade" id="favoritesModal" tabindex="-1">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Избранные автомобили (${favorites.length})</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                ${favoriteCarsList}
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Закрыть</button>
+                            <button type="button" class="btn btn-danger" onclick="clearAllFavorites()">
+                                Очистить все
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Добавляем модальное окно если его нет
+        if (!document.getElementById('favoritesModal')) {
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        } else {
+            document.getElementById('favoritesModal').innerHTML = modalHTML;
+        }
+        
+        // Показываем модальное окно
+        const modal = new bootstrap.Modal(document.getElementById('favoritesModal'));
+        modal.show();
+    };
+    
+    // Функция очистки всех избранных
+    window.clearAllFavorites = function() {
+        if (confirm('Вы уверены, что хотите очистить все избранные автомобили?')) {
+            favorites = [];
+            localStorage.setItem('favoriteCars', JSON.stringify(favorites));
+            updateFavoritesBadge();
+            
+            const modal = bootstrap.Modal.getInstance(document.getElementById('favoritesModal'));
+            if (modal) modal.hide();
+            
+            showNotification('Все автомобили удалены из избранного', 'info');
+        }
+    };
+    
+    // Инициализация бейджа при загрузке
+    updateFavoritesBadge();
+}
+
+// Вспомогательная функция для показа уведомлений
+function showNotification(message, type = 'info') {
+    const alertClass = {
+        'success': 'alert-success',
+        'warning': 'alert-warning',
+        'error': 'alert-danger',
+        'info': 'alert-info'
+    }[type] || 'alert-info';
+    
+    const notification = document.createElement('div');
+    notification.className = `alert ${alertClass} alert-dismissible fade show position-fixed`;
+    notification.style.cssText = `
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        min-width: 300px;
+    `;
+    notification.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Автоматическое скрытие через 3 секунды
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.remove();
+        }
+    }, 3000);
+}
+
+// Функция для форматирования цены
+function formatPrice(price) {
+    if (!price) return 'Цена по запросу';
+    return new Intl.NumberFormat('ru-RU', {
+        minimumFractionDigits: 0
+    }).format(price) + ' ₽';
+}
+
 // Инициализация при загрузке страницы
 document.addEventListener('DOMContentLoaded', function() {
     initCarGallery();
     initSmoothScroll();
     initScrollAnimations();
+    initBrandFilter();
+    initFavorites();
     loadCars();
+
+    // Добавляем кнопку избранного в навигацию
+    const navbar = document.querySelector('.navbar .navbar-nav');
+    if (navbar) {
+        const favoritesItem = document.createElement('li');
+        favoritesItem.className = 'nav-item';
+        favoritesItem.innerHTML = `
+            <a class="nav-link" href="#" onclick="showFavorites(); return false;">
+                <i class="fas fa-heart"></i> Избранное
+                <span id="favoritesBadge" class="badge bg-danger ms-1" style="display: none;">0</span>
+            </a>
+        `;
+        navbar.appendChild(favoritesItem);
+    }
 
     // Инициализация поиска
     const searchInput = document.getElementById('searchInput');

@@ -468,3 +468,49 @@ body {
 html {
     scroll-behavior: smooth;
 }
+
+/* Стили для активного состояния брендов */
+.brand-logo.active {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
+    border: 2px solid var(--secondary-color);
+}
+
+/* Стили для кнопок избранного */
+.btn-favorite {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.btn-favorite:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+/* Анимация для уведомлений */
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.alert {
+    animation: slideInRight 0.3s ease;
+}
