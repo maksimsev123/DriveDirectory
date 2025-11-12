@@ -575,6 +575,30 @@
             box-shadow: 0 10px 25px rgba(231, 76, 60, 0.3);
             border: 2px solid var(--secondary-color);
         }
+
+        /* Стили для фильтров */
+        .filters-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-select, .form-control {
+            border-radius: 10px;
+            border: 2px solid #e9ecef;
+            padding: 0.75rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-select:focus, .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(231, 76, 60, 0.25);
+        }
+
+        .car-card.hidden {
+            display: none !important;
+        }
     </style>
 </head>
 <body>
@@ -601,6 +625,28 @@
                             <span id="favoritesBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="display: none;">0</span>
                         </a>
                     </li>
+                    <!-- Кнопки авторизации -->
+                    <div id="authButtons">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">
+                                <i class="fas fa-sign-in-alt"></i> Вход
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">
+                                <i class="fas fa-user-plus"></i> Регистрация
+                            </a>
+                        </li>
+                    </div>
+                    <!-- Информация о пользователе -->
+                    <li class="nav-item dropdown" id="userInfo" style="display: none;">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                            <i class="fas fa-user"></i> <span id="currentUsername"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#" id="logoutBtn"><i class="fas fa-sign-out-alt"></i> Выход</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -621,13 +667,13 @@
                     </div>
                     <div class="col-md-3 col-6">
                         <div class="stat-item">
-                            <h3>30+</h3>
+                            <h3>10+</h3>
                             <p>Моделей</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-6">
                         <div class="stat-item">
-                            <h3>1000+</h3>
+                            <h3>70+</h3>
                             <p>Автомобилей</p>
                         </div>
                     </div>
@@ -642,61 +688,61 @@
             <h2 class="text-center mb-5 section-title">Наши бренды</h2>
             <div class="row g-4 justify-content-center">
                 <div class="col-6 col-md-4 col-lg-2 text-center">
-                    <div class="brand-logo">
+                    <div class="brand-logo" onclick="scrollToBrand('BMW')">
                         <i class="fas fa-car-side"></i>
                         <span>BMW</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2 text-center">
-                    <div class="brand-logo">
+                    <div class="brand-logo" onclick="scrollToBrand('Mercedes')">
                         <i class="fas fa-star"></i>
                         <span>Mercedes</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2 text-center">
-                    <div class="brand-logo">
+                    <div class="brand-logo" onclick="scrollToBrand('Audi')">
                         <i class="fas fa-ring"></i>
                         <span>Audi</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2 text-center">
-                    <div class="brand-logo">
+                    <div class="brand-logo" onclick="scrollToBrand('Porsche')">
                         <i class="fas fa-horse-head"></i>
                         <span>Porsche</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2 text-center">
-                    <div class="brand-logo">
+                    <div class="brand-logo" onclick="scrollToBrand('Dodge')">
                         <i class="fas fa-bolt"></i>
                         <span>Dodge</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2 text-center">
-                    <div class="brand-logo">
+                    <div class="brand-logo" onclick="scrollToBrand('Chevrolet')">
                         <i class="fas fa-flag-usa"></i>
                         <span>Chevrolet</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2 text-center">
-                    <div class="brand-logo">
+                    <div class="brand-logo" onclick="scrollToBrand('Ford')">
                         <i class="fas fa-horse"></i>
                         <span>Ford</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2 text-center">
-                    <div class="brand-logo">
+                    <div class="brand-logo" onclick="scrollToBrand('Cadillac')">
                         <i class="fas fa-crown"></i>
                         <span>Cadillac</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2 text-center">
-                    <div class="brand-logo">
+                    <div class="brand-logo" onclick="scrollToBrand('Lamborghini')">
                         <i class="fas fa-shield-alt"></i>
                         <span>Lamborghini</span>
                     </div>
                 </div>
                 <div class="col-6 col-md-4 col-lg-2 text-center">
-                    <div class="brand-logo">
+                    <div class="brand-logo" onclick="scrollToBrand('RAM')">
                         <i class="fas fa-truck-pickup"></i>
                         <span>RAM</span>
                     </div>
@@ -709,14 +755,46 @@
     <section id="catalog" class="py-5 catalog-section">
         <div class="container">
             <h2 class="text-center mb-5 section-title">Каталог автомобилей</h2>
+            
+            <!-- Фильтры -->
+            <div class="filters-section mb-5">
+                <div class="row g-3">
+                    <div class="col-md-4">
+                        <select id="brandFilter" class="form-select">
+                            <option value="">Все бренды</option>
+                            <option value="BMW">BMW</option>
+                            <option value="Mercedes">Mercedes-Benz</option>
+                            <option value="Audi">Audi</option>
+                            <option value="Porsche">Porsche</option>
+                            <option value="Dodge">Dodge</option>
+                            <option value="Chevrolet">Chevrolet</option>
+                            <option value="Ford">Ford</option>
+                            <option value="Cadillac">Cadillac</option>
+                            <option value="Lamborghini">Lamborghini</option>
+                            <option value="RAM">RAM</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" id="modelFilter" class="form-control" placeholder="Поиск по модели...">
+                    </div>
+                    <div class="col-md-4">
+                        <select id="priceFilter" class="form-select">
+                            <option value="">Все цены</option>
+                            <option value="0-10">До 10 млн ₽</option>
+                            <option value="10-20">10-20 млн ₽</option>
+                            <option value="20-50">Свыше 20 млн ₽</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
 
             <!-- BMW -->
-            <div class="brand-section mb-5">
+            <div class="brand-section mb-5" data-brand="BMW" id="brand-BMW">
                 <h3 class="brand-title mb-4">BMW</h3>
                 <div class="row g-4">
                     <!-- BMW M5 Competition -->
                     <div class="col-md-6 col-lg-4">
-                        <div class="card h-100 car-card">
+                        <div class="card h-100 car-card" data-brand="BMW" data-model="M5 Competition" data-price="12900000">
                             <div class="card-image position-relative">
                                 <img src="images/cars/bmw-m5-1.jpg" class="card-img-top" alt="BMW M5 Competition">
                                 <!-- Кнопка избранного -->
@@ -3693,14 +3771,141 @@
         </div>
     </div>
 
+    <!-- Модальное окно входа -->
+    <div class="modal fade" id="loginModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Вход в систему</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="loginForm">
+                        <div class="mb-3">
+                            <label for="loginUsername" class="form-label">Логин</label>
+                            <input type="text" class="form-control" id="loginUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="loginPassword" class="form-label">Пароль</label>
+                            <input type="password" class="form-control" id="loginPassword" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Войти</button>
+                        </div>
+                    </form>
+                    <div class="text-center mt-3">
+                        <small class="text-muted">Тестовый аккаунт: admin / admin123</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно регистрации -->
+    <div class="modal fade" id="registerModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Регистрация</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="mb-3">
+                            <label for="registerUsername" class="form-label">Логин</label>
+                            <input type="text" class="form-control" id="registerUsername" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="registerPassword" class="form-label">Пароль</label>
+                            <input type="password" class="form-control" id="registerPassword" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label">Подтвердите пароль</label>
+                            <input type="password" class="form-control" id="confirmPassword" required>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bootstrap 5 JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="add-data-attributes.js"></script>
+    <script src="add-brand-ids.js"></script>
+    <script src="auth.js"></script>
     <script>
         // Система избранного
-        let favorites = JSON.parse(localStorage.getItem('favoriteCars')) || [];
+        let favorites = [];
+
+        // Функция плавного скролла к бренду
+        function scrollToBrand(brandName) {
+            const brandSection = document.querySelector(`[data-brand="${brandName}"]`);
+            if (brandSection) {
+                brandSection.scrollIntoView({ 
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        }
+
+        // Функция фильтрации
+        function filterCars() {
+            const brandFilter = document.getElementById('brandFilter').value;
+            const modelFilter = document.getElementById('modelFilter').value.toLowerCase();
+            const priceFilter = document.getElementById('priceFilter').value;
+            
+            const carCards = document.querySelectorAll('.car-card');
+            const brandSections = document.querySelectorAll('.brand-section');
+            
+            carCards.forEach(card => {
+                const cardBrand = card.getAttribute('data-brand');
+                const cardModel = card.getAttribute('data-model')?.toLowerCase() || '';
+                const cardPrice = parseInt(card.getAttribute('data-price')) || 0;
+                
+                let showCard = true;
+                
+                // Фильтр по бренду
+                if (brandFilter && cardBrand !== brandFilter) {
+                    showCard = false;
+                }
+                
+                // Фильтр по модели
+                if (modelFilter && !cardModel.includes(modelFilter)) {
+                    showCard = false;
+                }
+                
+                // Фильтр по цене
+                if (priceFilter) {
+                    const [min, max] = priceFilter.split('-').map(x => parseInt(x) * 1000000);
+                    if (max && (cardPrice < min || cardPrice > max)) {
+                        showCard = false;
+                    } else if (!max && cardPrice < min) {
+                        showCard = false;
+                    }
+                }
+                
+                card.style.display = showCard ? 'block' : 'none';
+            });
+            
+            // Скрываем пустые секции брендов
+            brandSections.forEach(section => {
+                const visibleCards = section.querySelectorAll('.car-card[style*="block"], .car-card:not([style*="none"])');
+                section.style.display = visibleCards.length > 0 ? 'block' : 'none';
+            });
+        }
 
         // Функция для добавления/удаления из избранного
         function toggleFavorite(carId, button) {
+            // Проверяем, авторизован ли пользователь
+            if (!authSystem.currentUser) {
+                authSystem.showNotification('Для добавления в избранное необходимо войти в систему', 'warning');
+                return;
+            }
+            
             const index = favorites.indexOf(carId);
             
             if (index > -1) {
@@ -3708,17 +3913,17 @@
                 favorites.splice(index, 1);
                 button.classList.remove('active');
                 button.innerHTML = '<i class="far fa-heart"></i>';
-                showNotification('Удалено из избранного', 'warning');
+                authSystem.showNotification('Удалено из избранного', 'warning');
             } else {
                 // Добавляем в избранное
                 favorites.push(carId);
                 button.classList.add('active');
                 button.innerHTML = '<i class="fas fa-heart"></i>';
-                showNotification('Добавлено в избранное', 'success');
+                authSystem.showNotification('Добавлено в избранное', 'success');
             }
             
-            // Сохраняем в localStorage
-            localStorage.setItem('favoriteCars', JSON.stringify(favorites));
+            // Сохраняем для текущего пользователя
+            authSystem.saveFavorites();
             updateFavoritesBadge();
         }
 
@@ -3733,6 +3938,11 @@
 
         // Функция для показа избранных автомобилей
         function showFavorites() {
+            if (!authSystem.currentUser) {
+                authSystem.showNotification('Для просмотра избранного необходимо войти в систему', 'warning');
+                return;
+            }
+            
             const favoritesList = document.getElementById('favoritesList');
             const emptyFavorites = document.getElementById('emptyFavorites');
             
@@ -3742,8 +3952,6 @@
             } else {
                 emptyFavorites.style.display = 'none';
                 favoritesList.innerHTML = favorites.map(carId => {
-                    // Здесь нужно добавить логику для получения данных об автомобиле по carId
-                    // Пока используем заглушку
                     return `
                         <div class="col-md-6 mb-3">
                             <div class="favorite-card">
@@ -3778,10 +3986,10 @@
             const index = favorites.indexOf(carId);
             if (index > -1) {
                 favorites.splice(index, 1);
-                localStorage.setItem('favoriteCars', JSON.stringify(favorites));
+                authSystem.saveFavorites();
                 updateFavoritesBadge();
                 showFavorites(); // Обновляем список
-                showNotification('Удалено из избранного', 'warning');
+                authSystem.showNotification('Удалено из избранного', 'warning');
                 
                 // Обновляем кнопку в основном каталоге
                 const buttons = document.querySelectorAll(`[onclick="toggleFavorite('${carId}', this)"]`);
@@ -3796,7 +4004,7 @@
         function clearAllFavorites() {
             if (confirm('Вы уверены, что хотите очистить все избранные автомобили?')) {
                 favorites = [];
-                localStorage.setItem('favoriteCars', JSON.stringify(favorites));
+                authSystem.saveFavorites();
                 updateFavoritesBadge();
                 
                 // Обновляем все кнопки в каталоге
@@ -3806,7 +4014,7 @@
                     btn.innerHTML = '<i class="far fa-heart"></i>';
                 });
                 
-                showNotification('Все автомобили удалены из избранного', 'info');
+                authSystem.showNotification('Все автомобили удалены из избранного', 'info');
                 
                 // Закрываем модальное окно
                 const modal = bootstrap.Modal.getInstance(document.getElementById('favoritesModal'));
@@ -3936,9 +4144,109 @@
                 });
             });
         }
+        // Функции для работы с API базы данных
+async function loadCarsFromDatabase() {
+    try {
+        const response = await fetch('/api/cars');
+        const cars = await response.json();
+        renderCars(cars);
+    } catch (error) {
+        console.error('Ошибка загрузки автомобилей:', error);
+        // Fallback: используем статические данные
+        loadStaticCars();
+    }
+}
+
+function renderCars(cars) {
+    const catalogSection = document.getElementById('catalog');
+    
+    // Группируем автомобили по брендам
+    const brands = {};
+    cars.forEach(car => {
+        if (!brands[car.brand]) {
+            brands[car.brand] = [];
+        }
+        brands[car.brand].push(car);
+    });
+    
+    // Создаем HTML для каждого бренда
+    let html = '';
+    for (const [brandName, brandCars] of Object.entries(brands)) {
+        html += `
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">${brandName}</h3>
+                <div class="row g-4">
+                    ${brandCars.map(car => createCarCard(car)).join('')}
+                </div>
+            </div>
+        `;
+    }
+    
+    catalogSection.innerHTML = html;
+}
+
+function createCarCard(car) {
+    return `
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 car-card">
+                <div class="card-image position-relative">
+                    <img src="images/cars/${car.images[0] || 'placeholder.jpg'}" 
+                         class="card-img-top" 
+                         alt="${car.brand} ${car.model}">
+                    <button class="btn-favorite" onclick="toggleFavorite('${car.id}', this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <div class="card-overlay">
+                        <span class="price">${formatPrice(car.price)}</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">${car.brand} ${car.model}</h5>
+                    <div class="car-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>${car.horsepower} л.с.</span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>${car.acceleration} с</span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-cog"></i>
+                            <span>${car.engine_type}</span>
+                        </div>
+                    </div>
+                    <p class="card-text">${car.description}</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary w-100" 
+                            onclick="showCarDetails('${car.id}')">
+                        Подробнее
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function formatPrice(price) {
+    if (!price) return 'Цена по запросу';
+    return `от ${price.toLocaleString('ru-RU')} ₽`;
+}
 
         // Инициализация галереи при загрузке
         document.addEventListener('DOMContentLoaded', initCarGallery);
+        
+        // Добавляем обработчики для фильтров после загрузки
+        window.addEventListener('load', function() {
+            const brandFilter = document.getElementById('brandFilter');
+            const modelFilter = document.getElementById('modelFilter');
+            const priceFilter = document.getElementById('priceFilter');
+            
+            if (brandFilter) brandFilter.addEventListener('change', filterCars);
+            if (modelFilter) modelFilter.addEventListener('input', filterCars);
+            if (priceFilter) priceFilter.addEventListener('change', filterCars);
+        });
     </script>
 </body>
 </html>
