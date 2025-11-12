@@ -621,13 +621,13 @@
                     </div>
                     <div class="col-md-3 col-6">
                         <div class="stat-item">
-                            <h3>30+</h3>
+                            <h3>10+</h3>
                             <p>Моделей</p>
                         </div>
                     </div>
                     <div class="col-md-3 col-6">
                         <div class="stat-item">
-                            <h3>1000+</h3>
+                            <h3>70+</h3>
                             <p>Автомобилей</p>
                         </div>
                     </div>
@@ -3936,6 +3936,95 @@
                 });
             });
         }
+        // Функции для работы с API базы данных
+async function loadCarsFromDatabase() {
+    try {
+        const response = await fetch('/api/cars');
+        const cars = await response.json();
+        renderCars(cars);
+    } catch (error) {
+        console.error('Ошибка загрузки автомобилей:', error);
+        // Fallback: используем статические данные
+        loadStaticCars();
+    }
+}
+
+function renderCars(cars) {
+    const catalogSection = document.getElementById('catalog');
+    
+    // Группируем автомобили по брендам
+    const brands = {};
+    cars.forEach(car => {
+        if (!brands[car.brand]) {
+            brands[car.brand] = [];
+        }
+        brands[car.brand].push(car);
+    });
+    
+    // Создаем HTML для каждого бренда
+    let html = '';
+    for (const [brandName, brandCars] of Object.entries(brands)) {
+        html += `
+            <div class="brand-section mb-5">
+                <h3 class="brand-title mb-4">${brandName}</h3>
+                <div class="row g-4">
+                    ${brandCars.map(car => createCarCard(car)).join('')}
+                </div>
+            </div>
+        `;
+    }
+    
+    catalogSection.innerHTML = html;
+}
+
+function createCarCard(car) {
+    return `
+        <div class="col-md-6 col-lg-4">
+            <div class="card h-100 car-card">
+                <div class="card-image position-relative">
+                    <img src="images/cars/${car.images[0] || 'placeholder.jpg'}" 
+                         class="card-img-top" 
+                         alt="${car.brand} ${car.model}">
+                    <button class="btn-favorite" onclick="toggleFavorite('${car.id}', this)">
+                        <i class="far fa-heart"></i>
+                    </button>
+                    <div class="card-overlay">
+                        <span class="price">${formatPrice(car.price)}</span>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">${car.brand} ${car.model}</h5>
+                    <div class="car-specs">
+                        <div class="spec-item">
+                            <i class="fas fa-tachometer-alt"></i>
+                            <span>${car.horsepower} л.с.</span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-rocket"></i>
+                            <span>${car.acceleration} с</span>
+                        </div>
+                        <div class="spec-item">
+                            <i class="fas fa-cog"></i>
+                            <span>${car.engine_type}</span>
+                        </div>
+                    </div>
+                    <p class="card-text">${car.description}</p>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary w-100" 
+                            onclick="showCarDetails('${car.id}')">
+                        Подробнее
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function formatPrice(price) {
+    if (!price) return 'Цена по запросу';
+    return `от ${price.toLocaleString('ru-RU')} ₽`;
+}
 
         // Инициализация галереи при загрузке
         document.addEventListener('DOMContentLoaded', initCarGallery);

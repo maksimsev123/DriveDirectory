@@ -72,18 +72,109 @@ class CarDatabase:
         cursor = conn.cursor()
         
         try:
-            cursor.execute('''
-                INSERT INTO brands (name, country, description, logo_url)
-                VALUES (?, ?, ?, ?)
-            ''', (name, country, description, logo_url))
-            conn.commit()
-            print(f"✅ Добавлен бренд: {name}")
-            return cursor.lastrowid
-        except sqlite3.IntegrityError:
-            # Бренд уже существует
-            cursor.execute('SELECT id FROM brands WHERE name = ?', (name,))
-            result = cursor.fetchone()
-            return result[0] if result else None
+            # Сначала проверяем, существует ли бренд
+            cursor.execute('SELECT id, country, description, logo_url FROM brands WHERE name = ?', (name,))
+            existing_brand = cursor.fetchone()
+            
+            if existing_brand:
+                # Бренд уже существует, обновляем данные если переданы новые значения
+                brand_id = existing_brand[0]
+                current_country = existing_brand[1]
+                current_description = existing_brand[2]
+                current_logo_url = existing_brand[3]
+                
+                # Обновляем только если переданы новые значения
+                needs_update = False
+                update_fields = []
+                update_values = []
+                
+                if country is not None and country != current_country:
+                    update_fields.append("country = ?")
+                    update_values.append(country)
+                    needs_update = True
+                
+                if description is not None and description != current_description:
+                    update_fields.append("description = ?")
+                    update_values.append(description)
+                    needs_update = True
+                
+                if logo_url is not None and logo_url != current_logo_url:
+                    update_fields.append("logo_url = ?")
+                    update_values.append(logo_url)
+                    needs_update = True
+                
+                if needs_update:
+                    update_values.append(brand_id)
+                    cursor.execute(f'''
+                        UPDATE brands 
+                        SET {', '.join(update_fields)} 
+                        WHERE id = ?
+                    ''', update_values)
+                    conn.commit()
+                    print(f"✅ Обновлен бренд: {name}")
+                else:
+                    print(f"⏭️  Бренд уже существует: {name}")
+                
+                return brand_id
+            else:
+                # Бренд не существует, создаем новый
+                cursor.execute('''
+                    INSERT INTO brands (name, country, description, logo_url)
+                    VALUES (?, ?, ?, ?)
+                ''', (name, country, description, logo_url))
+                conn.commit()
+                print(f"✅ Добавлен бренд: {name}")
+                return cursor.lastrowid
+                
+        except sqlite3.Error as e:
+            print(f"❌ Ошибка при работе с брендом {name}: {e}")
+            return None
+        finally:
+            conn.close()
+    
+    def update_brand(self, name, country=None, description=None, logo_url=None):
+        """Обновление данных бренда"""
+        conn = self.get_connection()
+        cursor = conn.cursor()
+        
+        try:
+            update_fields = []
+            update_values = []
+            
+            if country is not None:
+                update_fields.append("country = ?")
+                update_values.append(country)
+            
+            if description is not None:
+                update_fields.append("description = ?")
+                update_values.append(description)
+            
+            if logo_url is not None:
+                update_fields.append("logo_url = ?")
+                update_values.append(logo_url)
+            
+            if update_fields:
+                update_values.append(name)
+                cursor.execute(f'''
+                    UPDATE brands 
+                    SET {', '.join(update_fields)} 
+                    WHERE name = ?
+                ''', update_values)
+                conn.commit()
+                
+                if cursor.rowcount > 0:
+                    print(f"✅ Обновлен бренд: {name}")
+                    return True
+                else:
+                    print(f"⚠️  Бренд не найден: {name}")
+                    return False
+            else:
+                print(f"⏭️  Нет данных для обновления: {name}")
+                return False
+                
+        except sqlite3.Error as e:
+            print(f"❌ Ошибка при обновлении бренда {name}: {e}")
+            return False
         finally:
             conn.close()
     
